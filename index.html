@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dalat Fresh — Rau củ quả hữu cơ từ Đà Lạt</title>
+<meta name="description" content="Dalat Fresh: rau củ quả hữu cơ hái tại nông trại Đà Lạt, giao lạnh trong ngày tới bếp nhà bạn.">
+<link rel="icon" href="img/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/harvest.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Bỏ qua, tới nội dung chính</a>
+
+<div class="shell">
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+
+      <a class="brand" href="index.html">
+        <img src="img/logo.svg" alt="" width="44" height="44">
+        <span class="brand-name">Dalat <em>Fresh</em></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Điều hướng chính">
+        <ul>
+          <li><a class="is-active" href="index.html" aria-current="page">Trang chủ</a></li>
+          <li><a href="products.html">Cửa hàng</a></li>
+          <li><a href="farm-story.html">Câu chuyện nông trại</a></li>
+          <li><a href="#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-tools">
+        <form class="search" role="search" onsubmit="return false">
+          <label class="sr-only" for="q">Tìm sản phẩm</label>
+          <input id="q" type="search" placeholder="Tìm rau củ, combo…" autocomplete="off">
+          <button type="submit" aria-label="Tìm">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m13.5 13.5 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+        </form>
+
+        <a class="icon-btn" href="#" aria-label="Tài khoản">
+          <svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 19c1.6-4 4-6 7-6s5.4 2 7 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </a>
+
+        <button class="cart-btn" type="button" id="cartBtn">
+          <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 4h2.2l2.3 10.2h9.1L19 7H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="18" r="1.6" fill="currentColor"/><circle cx="16" cy="18" r="1.6" fill="currentColor"/></svg>
+          Giỏ hàng (<span id="cartCount">0</span>)
+        </button>
+
+        <button class="burger" id="burger" type="button" aria-label="Mở menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+  <!-- ================= HERO: TƯƠI MỖI NGÀY - ĐÀ LẠT ================= -->
+  <section class="hero fresh-hero">
+    <img class="blur-leaf leaf-tl" src="img/decor/leaf-1.svg" alt="" aria-hidden="true">
+    <img class="blur-leaf leaf-bl" src="img/decor/leaf-2.svg" alt="" aria-hidden="true">
+    <img class="blur-leaf leaf-tr" src="img/decor/leaf-2.svg" alt="" aria-hidden="true">
+    <img class="blur-leaf leaf-br" src="img/decor/leaf-1.svg" alt="" aria-hidden="true">
+
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow fresh-eyebrow">
+          <span class="fresh-dot"></span>
+          TƯƠI TỪ ĐÀ LẠT · HÁI MỖI NGÀY
+        </p>
+
+        <h1 class="hero-title">
+          Vị tươi của<br>
+          <span>cao nguyên Đà Lạt</span>
+        </h1>
+
+        <p class="hero-sub">
+          Rau củ được tuyển chọn từ những vùng trồng tại Đà Lạt,
+          ưu tiên thu hoạch gần giờ giao hàng để giữ màu xanh, độ giòn
+          và vị tự nhiên khi đến căn bếp của bạn.
+        </p>
+
+        <div class="hero-origin">
+          <span class="origin-pin" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: #edf5e7; display: flex; align-items: center; justify-content: center; font-size: 20px;">⌖</span>
+          <div>
+            <strong>Lạc Dương · Lâm Đồng</strong>
+            <span>Cao nguyên mát lành · nguồn rau mỗi ngày</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="products.html">
+            Chọn rau tươi hôm nay
+            <svg viewBox="0 0 20 16" aria-hidden="true"><path d="M2 8h15M11 2l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-accent" href="farm-story.html">
+            Khám phá vùng trồng
+            <svg viewBox="0 0 20 16" aria-hidden="true"><path d="M2 8h15M11 2l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual fresh-hero-visual">
+        <div class="hero-image-frame">
+          <img class="hero-img" src="img/hero-veggies.jpg"
+               alt="Rau củ tươi từ vùng trồng Đà Lạt" width="1024" height="679">
+          <span class="hero-stamp">
+            <strong>ĐÀ LẠT</strong>
+            <small>FRESH DAILY</small>
+          </span>
+        </div>
+
+        <div class="fresh-floating-card fresh-card-top">
+          <span class="fresh-card-icon" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: #edf5e7; display: flex; align-items: center; justify-content: center; font-size: 20px;">🌿</span>
+          <div>
+            <strong>Tươi từ cao nguyên</strong>
+            <span>Ưu tiên nguồn rau thu hoạch gần ngày giao</span>
+          </div>
+        </div>
+
+        <div class="fresh-floating-card fresh-card-bottom">
+          <span class="fresh-card-icon" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: #edf5e7; display: flex; align-items: center; justify-content: center; font-size: 20px;">☀️</span>
+          <div>
+            <strong>Hái buổi sáng</strong>
+            <span>Giữ trọn độ tươi và màu sắc tự nhiên</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Điểm nhấn nhanh -->
+    <div class="wrap">
+      <div class="freshness-strip" style="margin-top: 55px; position: relative; z-index: 2;">
+        <div class="freshness-item">
+          <span class="freshness-number" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: #edf5e7; display: flex; align-items: center; justify-content: center; font-size: 20px;">🌱</span>
+          <div><strong>Vùng trồng Đà Lạt</strong><span>Lạc Dương · Lâm Đồng</span></div>
+        </div>
+        <div class="freshness-item">
+          <span class="freshness-number" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: #edf5e7; display: flex; align-items: center; justify-content: center; font-size: 20px;">🧺</span>
+          <div><strong>Thu hoạch gần ngày giao</strong><span>Ưu tiên rau củ theo mùa</span></div>
+        </div>
+        <div class="freshness-item">
+          <span class="freshness-number" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: #edf5e7; display: flex; align-items: center; justify-content: center; font-size: 20px;">📦</span>
+          <div><strong>Đóng gói cẩn thận</strong><span>Giữ rau tươi trên hành trình</span></div>
+        </div>
+        <div class="freshness-item">
+          <span class="freshness-number" style="width: 42px; height: 42px; flex: 0 0 42px; border-radius: 50%; background: #edf5e7; display: flex; align-items: center; justify-content: center; font-size: 20px;">🥗</span>
+          <div><strong>Đến bếp nhanh</strong><span>Tươi ngon cho bữa ăn mỗi ngày</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SẢN PHẨM TƯƠI HÔM NAY ================= -->
+  <section class="section products fresh-products" id="san-pham">
+    <div class="wrap">
+      <div class="section-head fresh-section-head">
+        <div>
+          <p class="section-kicker">RỔ RAU HÔM NAY</p>
+          <h2>Những gì Đà Lạt đang có mùa</h2>
+          <p>
+            Chọn rau củ theo nguồn gốc và mùa vụ. Mỗi sản phẩm đều hiển thị
+            nơi trồng, quy cách và thời điểm thu hoạch để bạn dễ lựa chọn.
+          </p>
+        </div>
+        <a class="link-more" href="products.html">Xem toàn bộ rau củ →</a>
+      </div>
+
+      <!-- Thông tin nguồn gốc / thời điểm hái -->
+      <!-- ================= THÔNG TIN RAU TƯƠI HÔM NAY ================= -->
+    <div class="fresh-harvest-ticket" aria-label="Thông tin nguồn rau hôm nay">
+
+      <!-- 01 - NGÀY THU HOẠCH -->
+      <div class="fresh-ticket-item">
+
+        <div class="ticket-icon ticket-sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle
+              cx="12"
+              cy="12"
+              r="4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
+            <path
+              d="M12 2v2
+                M12 20v2
+                M2 12h2
+                M20 12h2
+                M4.9 4.9l1.4 1.4
+                M17.7 17.7l1.4 1.4
+                M19.1 4.9l-1.4 1.4
+                M6.3 17.7l-1.4 1.4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+
+        <div class="ticket-content">
+          <span>NGÀY THU HOẠCH</span>
+
+          <strong id="htDate">
+            Hôm nay
+          </strong>
+
+          <small>
+            Mẻ rau đang được chuẩn bị
+          </small>
+        </div>
+
+      </div>
+
+
+      <!-- 02 - THỜI ĐIỂM HÁI -->
+      <div class="fresh-ticket-item">
+
+        <div class="ticket-icon ticket-clock" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <circle
+              cx="12"
+              cy="12"
+              r="8.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
+
+            <path
+              d="M12 7v5l3.5 2"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+        <div class="ticket-content">
+          <span>THỜI ĐIỂM HÁI</span>
+
+          <strong>
+            5:10 sáng
+          </strong>
+
+          <small id="htAgoSub">
+            Rau mới thu hoạch
+          </small>
+        </div>
+
+      </div>
+
+
+  <!-- 03 - VÙNG TRỒNG -->
+  <div class="fresh-ticket-item">
+
+    <div class="ticket-icon ticket-location" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <path
+          d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        />
+
+        <circle
+          cx="12"
+          cy="9"
+          r="2.3"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+        />
+      </svg>
+    </div>
+
+    <div class="ticket-content">
+      <span>VÙNG TRỒNG</span>
+
+      <strong>
+        Lạc Dương, Lâm Đồng
+      </strong>
+
+      <small>
+        Cao nguyên Đà Lạt
+      </small>
+    </div>
+
+  </div>
+
+
+  <!-- 04 - ĐANG MÙA -->
+  <div class="fresh-ticket-item">
+
+    <div class="ticket-icon ticket-leaf" aria-hidden="true">
+      <span>🌿</span>
+    </div>
+
+    <div class="ticket-content">
+      <span>ƯU TIÊN HÔM NAY</span>
+
+      <strong>
+        Rau củ theo mùa
+      </strong>
+
+      <small>
+        Tươi · xanh · tự nhiên
+      </small>
+    </div>
+
+  </div>
+
+</div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- JS đổ dữ liệu sản phẩm vào đây -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TỪ ĐẤT ĐÀ LẠT ĐẾN BÀN ĂN ================= -->
+  <section class="section origin-section">
+    <div class="wrap">
+      <div class="origin-intro">
+        <div>
+          <p class="section-kicker">HÀNH TRÌNH CỦA ĐỘ TƯƠI</p>
+          <h2>Từ luống rau Đà Lạt<br>đến bàn ăn của bạn</h2>
+        </div>
+        <p>
+          Chúng tôi muốn bạn nhìn thấy nhiều hơn một món rau trong giỏ hàng:
+          đó là nơi rau được trồng, thời điểm được thu hoạch và hành trình
+          rau đi từ cao nguyên đến căn bếp.
+        </p>
+      </div>
+
+      <div class="origin-steps">
+        <article class="origin-step">
+          <span class="origin-step-no">01</span>
+          <div class="origin-visual origin-mountain">⛰</div>
+          <h3>Trồng tại cao nguyên</h3>
+          <p>Nguồn rau được chọn từ các vùng trồng tại Đà Lạt và khu vực Lạc Dương, Lâm Đồng.</p>
+        </article>
+
+        <article class="origin-step">
+          <span class="origin-step-no">02</span>
+          <div class="origin-visual origin-leaf">🌱</div>
+          <h3>Chọn theo mùa</h3>
+          <p>Ưu tiên những loại rau củ đang vào mùa để sản phẩm đạt độ tươi và hương vị tự nhiên.</p>
+        </article>
+
+        <article class="origin-step">
+          <span class="origin-step-no">03</span>
+          <div class="origin-visual origin-basket">🧺</div>
+          <h3>Thu hoạch & đóng gói</h3>
+          <p>Rau được kiểm tra, đóng gói phù hợp và chuẩn bị cho hành trình giao đến khách hàng.</p>
+        </article>
+
+        <article class="origin-step">
+          <span class="origin-step-no">04</span>
+          <div class="origin-visual origin-home">🏡</div>
+          <h3>Về đến căn bếp</h3>
+          <p>Giữ trọn cảm giác tươi mới của rau củ Đà Lạt trong những bữa ăn hằng ngày.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GỢI Ý THEO MÙA ================= -->
+  <section class="section seasonal-section">
+    <div class="wrap">
+      <div class="seasonal-card">
+        <div class="seasonal-copy">
+          <p class="section-kicker light">GỢI Ý CHO HÔM NAY</p>
+          <h2>Mùa nào, rau ấy.<br>Tươi nhất khi đúng mùa.</h2>
+          <p>
+            Khám phá các nhóm rau lá, củ quả và trái cây đang được yêu thích.
+            Thực đơn theo mùa giúp căn bếp luôn có thêm màu sắc và vị tươi của Đà Lạt.
+          </p>
+          <a class="btn btn-light" href="products.html">Khám phá rau theo mùa →</a>
+        </div>
+
+        <div class="seasonal-badges" aria-label="Nhóm sản phẩm">
+          <div class="season-badge"><span>🥬</span><strong>Rau lá</strong><small>Tươi xanh</small></div>
+          <div class="season-badge"><span>🥕</span><strong>Củ quả</strong><small>Giòn ngọt</small></div>
+          <div class="season-badge"><span>🍓</span><strong>Trái cây</strong><small>Theo mùa</small></div>
+          <div class="season-badge"><span>🌶️</span><strong>Nhà kính</strong><small>Chọn lọc</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CÂU CHUYỆN NÔNG TRẠI ================= -->
+  <section class="section farm-story-home">
+    <div class="wrap">
+      <div class="farm-banner fresh-farm-banner">
+        <div class="fb-copy">
+          <p class="section-kicker light">CÂU CHUYỆN NÔNG TRẠI</p>
+          <h2>Biết rau đến từ đâu,<br>mới cảm nhận được vị tươi.</h2>
+          <p>
+            Từ cao nguyên Lâm Đồng, Dalat Fresh kết nối nguồn rau củ với căn bếp
+            bằng một hành trình rõ ràng: vùng trồng → thu hoạch → đóng gói → giao hàng.
+          </p>
+          <a class="btn btn-light" href="farm-story.html">Xem câu chuyện Đà Lạt</a>
+        </div>
+
+        <ul class="fb-stats fresh-stats">
+          <li><strong>ĐÀ LẠT</strong><span>Vùng đất của rau củ tươi</span></li>
+          <li><strong>5:10</strong><span>Giờ hái mẫu trong ngày</span></li>
+          <li><strong>24H</strong><span>Ưu tiên hành trình giao nhanh</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer" id="lien-he">
+    <div class="wrap footer-grid">
+      <div>
+        <a class="brand brand-light" href="index.html">
+          <img src="img/logo.svg" alt="" width="40" height="40">
+          <span class="brand-name">Dalat <em>Fresh</em></span>
+        </a>
+        <p class="footer-about">Rau củ quả hữu cơ từ cao nguyên Lâm Viên. Hái sáng, giao chiều, tươi đúng nghĩa.</p>
+      </div>
+      <div>
+        <h3>Sản phẩm</h3>
+        <ul><li><a href="products.html">Combo tuần</a></li><li><a href="products.html">Rau ăn lá</a></li><li><a href="products.html">Củ quả</a></li><li><a href="products.html">Trái cây Đà Lạt</a></li></ul>
+      </div>
+      <div>
+        <h3>Về Dalat Fresh</h3>
+        <ul><li><a href="farm-story.html">Câu chuyện nông trại</a></li><li><a href="#">Chứng nhận hữu cơ</a></li><li><a href="#">Tuyển dụng</a></li><li><a href="#">Blog nhà bếp</a></li></ul>
+      </div>
+      <div>
+        <h3>Liên hệ</h3>
+        <ul>
+          <li><a href="tel:+842633888999">0263 3 888 999</a></li>
+          <li><a href="mailto:chao@dalatfresh.vn">chao@dalatfresh.vn</a></li>
+          <li>Thôn Đạ Nghịt, Lạc Dương, Lâm Đồng</li>
+          <li>7:00 – 19:00, tất cả các ngày</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© 2026 Dalat Fresh. Đồ án website bán rau củ quả hữu cơ.</p>
+      <p>Giao hàng toàn quốc · Thanh toán khi nhận hàng</p>
+    </div>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/main.js"></script>
+<script src="js/harvest.js"></script>
+</body>
+</html>

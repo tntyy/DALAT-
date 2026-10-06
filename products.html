@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sản phẩm | Dalat Fresh</title>
+<meta name="description" content="Combo tuần và rau củ quả theo mùa từ nông trại Dalat Fresh, Đà Lạt.">
+<link rel="icon" href="img/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/products.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<a class="skip-link" href="#products"></a>
+
+<div class="products-shell">
+
+  <!-- ================= HEADER (giống hệt index.html) ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+
+      <a class="brand" href="index.html">
+        <img src="img/logo.svg" alt="" width="44" height="44">
+        <span class="brand-name">Dalat <em>Fresh</em></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Điều hướng chính">
+        <ul>
+          <li><a href="index.html">Trang chủ</a></li>
+          <li class="has-menu">
+            <button type="button" class="nav-toggle is-active" aria-expanded="false" aria-controls="menu-shop" aria-current="page">
+              Cửa hàng 
+            </button>
+            
+          </li>
+          
+          <li><a href="farm-story.html">Câu chuyện nông trại</a></li>
+          <li><a href="index.html#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-tools">
+        <form class="search" role="search" onsubmit="return false">
+          <input id="q" type="search" placeholder="Tìm rau củ, combo…" autocomplete="off">
+          <button type="submit" aria-label="Tìm">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m13.5 13.5 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+        </form>
+
+        <a class="icon-btn" href="#" aria-label="Tài khoản">
+          <svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 19c1.6-4 4-6 7-6s5.4 2 7 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </a>
+
+        <button class="cart-btn" type="button" id="cartBtn">
+          <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 4h2.2l2.3 10.2h9.1L19 7H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="18" r="1.6" fill="currentColor"/><circle cx="16" cy="18" r="1.6" fill="currentColor"/></svg>
+          Giỏ hàng (<span id="cartCount">0</span>)
+        </button>
+
+        <button class="burger" id="burger" type="button" aria-label="Mở menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HERO PRODUCTS ================= -->
+  <section class="products-hero">
+    <div class="wrap products-hero-inner">
+
+      <div class="hero-copy">
+        <span class="eyebrow">Hái mỗi ngày tại Đà Lạt</span>
+        <h1>Rau củ tươi <br><span>từ nông trại</span> đến căn bếp.</h1>
+        <p>Những sản phẩm được chọn lọc từ các nông trại Đà Lạt, thu hoạch theo ngày và giao đến bạn trong thời gian ngắn nhất.</p>
+      </div>
+
+      <!-- Ảnh hero sản phẩm -->
+      <div class="products-hero-image">
+        <img src="img/products/vegetables.jpg" alt="Rau củ tươi Đà Lạt" onerror="this.style.display='none'">
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================= MAIN ================= -->
+  <main id="products">
+    <div class="wrap">
+
+      <!-- ============ TOP BAR ============ -->
+      <section class="products-toolbar">
+        <div>
+          <span class="toolbar-label">Sản phẩm tươi mỗi ngày</span>
+          <h2>Chọn món ngon cho hôm nay</h2>
+        </div>
+
+        <div class="toolbar-search">
+          <span>⌕</span>
+          <input type="text" id="productSearch" placeholder="Tìm sản phẩm...">
+        </div>
+      </section>
+
+      <!-- ============ CATEGORY FILTER ============ -->
+      <div class="category-filter" id="categories">
+        <button class="filter-btn active" data-category="all">Tất cả</button>
+        <button class="filter-btn" data-category="rau">Rau ăn lá</button>
+        <button class="filter-btn" data-category="cu-qua">Củ quả</button>
+        <button class="filter-btn" data-category="trai-cay">Trái cây</button>
+        <button class="filter-btn" data-category="dac-san">Đặc sản Đà Lạt</button>
+      </div>
+
+      <!-- ============ PRODUCT GRID ============ -->
+      <section class="product-section">
+        <div class="product-grid" id="productGrid"></div>
+
+        <div class="empty-products" id="emptyProducts">
+          <div>🌱</div>
+          <h3>Không tìm thấy sản phẩm</h3>
+          <p>Hãy thử tìm với tên sản phẩm khác.</p>
+        </div>
+      </section>
+
+      <!-- ============ FARM BANNER ============ -->
+      <section class="farm-banner">
+        <div class="farm-copy">
+          <span>Dalat Fresh Farm</span>
+          <h2>Từ nông trại <br>đến bàn ăn.</h2>
+          <p>Chúng tôi ưu tiên những sản phẩm được thu hoạch gần thời điểm giao hàng nhất, để rau củ giữ được độ tươi ngon tự nhiên.</p>
+          <a href="farm-story.html" class="farm-button">Xem câu chuyện nông trại <span>→</span></a>
+        </div>
+
+        <div class="farm-stats">
+          <div class="farm-stat"><strong>100%</strong><span>Tươi mỗi ngày</span></div>
+          <div class="farm-stat"><strong>24h</strong><span>Giao hàng nhanh</span></div>
+          <div class="farm-stat"><strong>50+</strong><span>Nông sản</span></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+
+  <!-- ================= FOOTER (giống index.html) ================= -->
+  <footer class="site-footer" id="lien-he">
+    <div class="wrap footer-grid">
+      <div>
+        <a class="brand brand-light" href="index.html">
+          <img src="img/logo.svg" alt="" width="40" height="40">
+          <span class="brand-name">Dalat <em>Fresh</em></span>
+        </a>
+        <p class="footer-about">Rau củ quả hữu cơ từ cao nguyên Lâm Viên. Hái sáng, giao chiều, tươi đúng nghĩa.</p>
+      </div>
+      <div>
+        <h3>Sản phẩm</h3>
+        <ul>
+          <li><a href="products.html">Combo tuần</a></li>
+          <li><a href="products.html">Rau ăn lá</a></li>
+          <li><a href="products.html">Củ quả</a></li>
+          <li><a href="products.html">Trái cây Đà Lạt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Về Dalat Fresh</h3>
+        <ul>
+          <li><a href="farm-story.html">Câu chuyện nông trại</a></li>
+          <li><a href="#">Chứng nhận hữu cơ</a></li>
+          <li><a href="#">Tuyển dụng</a></li>
+          <li><a href="#">Blog nhà bếp</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Liên hệ</h3>
+        <ul>
+          <li><a href="tel:+842633888999">0263 3 888 999</a></li>
+          <li><a href="mailto:chao@dalatfresh.vn">chao@dalatfresh.vn</a></li>
+          <li>Thôn Đạ Nghịt, Lạc Dương, Lâm Đồng</li>
+          <li>7:00 – 19:00, tất cả các ngày</li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© 2026 Dalat Fresh. Đồ án website bán rau củ quả hữu cơ.</p>
+      <p>Giao hàng toàn quốc · Thanh toán khi nhận hàng</p>
+    </div>
+  </footer>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Đã thêm sản phẩm vào giỏ hàng 🌿</div>
+
+<script src="js/nav.js"></script>
+<script src="js/products.js"></script>
+</body>
+</html>

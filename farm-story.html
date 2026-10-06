@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Câu chuyện nông trại | Dalat Fresh</title>
+
+    <!-- CSS chung -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- CSS riêng trang nông trại -->
+    <link rel="stylesheet" href="css/farm-story.css">
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        document.documentElement.classList.add("js");
+    </script>
+</head>
+
+<body>
+
+<div class="shell">
+
+    <!-- ================= HEADER ================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="wrap header-inner">
+
+      <a class="brand" href="index.html">
+        <img src="img/logo.svg" alt="" width="44" height="44">
+        <span class="brand-name">Dalat <em>Fresh</em></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Điều hướng chính">
+        <ul>
+          <li><a  href="index.html" aria-current="page">Trang chủ</a></li>
+          <li><a href="products.html">Cửa hàng</a></li>
+          <li><a class="is-active" href="farm-story.html">Câu chuyện nông trại</a></li>
+          <li><a  href="#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-tools">
+        <form class="search" role="search" onsubmit="return false">
+          <input id="q" type="search" placeholder="Tìm rau củ, combo…" autocomplete="off">
+          <button type="submit" aria-label="Tìm">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m13.5 13.5 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+        </form>
+
+        <a class="icon-btn" href="#" aria-label="Tài khoản">
+          <svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4 19c1.6-4 4-6 7-6s5.4 2 7 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </a>
+
+        <button class="cart-btn" type="button" id="cartBtn">
+          <svg viewBox="0 0 22 22" aria-hidden="true"><path d="M3 4h2.2l2.3 10.2h9.1L19 7H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="18" r="1.6" fill="currentColor"/><circle cx="16" cy="18" r="1.6" fill="currentColor"/></svg>
+          Giỏ hàng (<span id="cartCount">0</span>)
+        </button>
+
+        <button class="burger" id="burger" type="button" aria-label="Mở menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+    <main>
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+        <section class="farm-hero">
+
+            <div class="container farm-hero-grid">
+
+                <div class="farm-hero-content">
+
+                    <span class="section-label">
+                        CÂU CHUYỆN NÔNG TRẠI
+                    </span>
+
+                    <h1>
+                        Từ một mảnh đất khỏe
+                        <span>đến bó rau tươi.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Mỗi bó rau Dalat Fresh bắt đầu từ đất,
+                        nguồn nước và sự chăm sóc kiên nhẫn của
+                        người nông dân. Chúng tôi xây dựng quy trình
+                        trồng trọt theo hướng hữu cơ, ưu tiên sức khỏe
+                        của đất và chất lượng nông sản.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#quy-trinh" class="btn btn-primary">
+                            Khám phá quy trình
+                            <span>↓</span>
+                        </a>
+
+                        <a href="#nguoi-nong-dan" class="btn btn-outline">
+                            Gặp người trồng rau
+                        </a>
+
+                    </div>
+
+                    <div class="hero-tags">
+
+                        <div class="hero-tag">
+                            <strong>01</strong>
+                            <span>Nuôi đất</span>
+                        </div>
+
+                        <div class="hero-tag">
+                            <strong>02</strong>
+                            <span>Gieo trồng</span>
+                        </div>
+
+                        <div class="hero-tag">
+                            <strong>03</strong>
+                            <span>Chăm sóc</span>
+                        </div>
+
+                        <div class="hero-tag">
+                            <strong>04</strong>
+                            <span>Thu hoạch</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HERO IMAGE -->
+                <figure class="farm-hero-image">
+
+                    <img
+                        src="img/farm/hero.jpg"
+                        alt="Người nông dân chăm sóc rau tại nông trại">
+
+                    <div class="image-badge">
+
+                        <span class="badge-icon">🌱</span>
+
+                        <div>
+                            <strong>Quy trình tự nhiên</strong>
+                            <small>
+                                Từ đất đến bàn ăn
+                            </small>
+                        </div>
+
+                    </div>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             INTRO
+        ================================================== -->
+        <section class="farm-intro">
+
+            <div class="container">
+
+                <div class="intro-grid">
+
+                    <div class="intro-heading reveal">
+
+                        <span class="section-label">
+                            TRIẾT LÝ CANH TÁC
+                        </span>
+
+                        <h2>
+                            Muốn có rau tốt,
+                            <span>trước hết phải có đất tốt.</span>
+                        </h2>
+
+                    </div>
+
+
+                    <div class="intro-content reveal">
+
+                        <p>
+                            Chúng tôi nhìn việc trồng rau như một vòng
+                            tuần hoàn. Đất được chăm sóc trước khi gieo
+                            hạt, cây được theo dõi trong suốt quá trình
+                            sinh trưởng và chỉ thu hoạch khi đạt độ
+                            phát triển phù hợp.
+                        </p>
+
+                        <p>
+                            Quy trình dưới đây mô tả cách một vụ rau đi
+                            từ bước chuẩn bị đất đến khi trở thành sản
+                            phẩm được đóng gói và đưa đến người tiêu dùng.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="intro-cards">
+
+                    <article class="intro-card reveal">
+
+                        <span class="intro-number">01</span>
+
+                        <div>
+                            <h3>Đất khỏe</h3>
+                            <p>
+                                Ưu tiên cải tạo đất và duy trì môi trường
+                                thuận lợi cho cây sinh trưởng.
+                            </p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="intro-card reveal">
+
+                        <span class="intro-number">02</span>
+
+                        <div>
+                            <h3>Cây khỏe</h3>
+                            <p>
+                                Theo dõi cây thường xuyên và chăm sóc
+                                phù hợp với từng giai đoạn.
+                            </p>
+                        </div>
+
+                    </article>
+
+
+                    <article class="intro-card reveal">
+
+                        <span class="intro-number">03</span>
+
+                        <div>
+                            <h3>Rau tươi</h3>
+                            <p>
+                                Thu hoạch và xử lý sau thu hoạch để
+                                giữ độ tươi của sản phẩm.
+                            </p>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUY TRÌNH
+        ================================================== -->
+        <section
+            class="farm-process"
+            id="quy-trinh">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="section-label">
+                        QUY TRÌNH TRỒNG TRỌT
+                    </span>
+
+                    <h2>
+                        Sáu bước từ đất
+                        <span>đến bó rau.</span>
+                    </h2>
+
+                    <p>
+                        Mỗi giai đoạn đều có một mục tiêu riêng:
+                        tạo điều kiện tốt cho cây phát triển tự nhiên
+                        và giữ chất lượng rau sau thu hoạch.
+                    </p>
+
+                </div>
+
+
+                <!-- =========================================
+                     STEP 01
+                ========================================== -->
+                <article class="process-row reveal">
+
+                    <div class="process-image">
+
+                        <img
+                            src="img/farm/soil.jpg"
+                            alt="Chuẩn bị và chăm sóc đất trồng">
+
+                        <span class="step-number">
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <div class="process-content">
+
+                        <span class="process-label">
+                            GIAI ĐOẠN 01
+                        </span>
+
+                        <h3>
+                            Chuẩn bị đất
+                        </h3>
+
+                        <p class="process-time">
+                            Trước khi gieo trồng
+                        </p>
+
+                        <p>
+                            Một vụ rau bắt đầu từ việc chuẩn bị nền đất.
+                            Đất được làm tơi, làm sạch và bổ sung nguồn
+                            dinh dưỡng phù hợp để tạo môi trường thuận lợi
+                            cho bộ rễ phát triển.
+                        </p>
+
+                        <ul class="process-list">
+
+                            <li>
+                                <span>✓</span>
+                                Làm tơi và vệ sinh luống đất
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Bổ sung chất hữu cơ phù hợp
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Kiểm tra độ ẩm trước khi gieo
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================================
+                     STEP 02
+                ========================================== -->
+                <article class="process-row reverse reveal">
+
+                    <div class="process-image">
+
+                        <img
+                            src="img/farm/seedling.jpg"
+                            alt="Cây giống non được ươm trước khi trồng">
+
+                        <span class="step-number">
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <div class="process-content">
+
+                        <span class="process-label">
+                            GIAI ĐOẠN 02
+                        </span>
+
+                        <h3>
+                            Chọn giống và ươm cây
+                        </h3>
+
+                        <p class="process-time">
+                            Giai đoạn cây non
+                        </p>
+
+                        <p>
+                            Hạt giống được lựa chọn phù hợp với điều kiện
+                            canh tác. Cây non được chăm sóc trong giai đoạn
+                            đầu để phát triển bộ rễ và thân lá khỏe trước
+                            khi chuyển ra luống.
+                        </p>
+
+                        <ul class="process-list">
+
+                            <li>
+                                <span>✓</span>
+                                Lựa chọn hạt giống phù hợp
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Theo dõi độ ẩm và ánh sáng
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Chọn cây phát triển đồng đều
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================================
+                     STEP 03
+                ========================================== -->
+                <article class="process-row reveal">
+
+                    <div class="process-image">
+
+                        <img
+                            src="img/farm/planting.jpg"
+                            alt="Người nông dân trồng cây rau">
+
+                        <span class="step-number">
+                            03
+                        </span>
+
+                    </div>
+
+
+                    <div class="process-content">
+
+                        <span class="process-label">
+                            GIAI ĐOẠN 03
+                        </span>
+
+                        <h3>
+                            Đưa cây ra luống
+                        </h3>
+
+                        <p class="process-time">
+                            Sau khi cây đủ khỏe
+                        </p>
+
+                        <p>
+                            Khi cây giống đạt kích thước phù hợp, cây được
+                            chuyển ra luống. Khoảng cách giữa các cây được
+                            bố trí để cây có đủ không gian nhận ánh sáng,
+                            nước và chất dinh dưỡng.
+                        </p>
+
+                        <ul class="process-list">
+
+                            <li>
+                                <span>✓</span>
+                                Tạo luống trồng phù hợp
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Đảm bảo khoảng cách giữa cây
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Hạn chế tổn thương bộ rễ
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================================
+                     STEP 04
+                ========================================== -->
+                <article class="process-row reverse reveal">
+
+                    <div class="process-image">
+
+                        <img
+                            src="img/farm/care.jpg"
+                            alt="Chăm sóc cây rau trong quá trình sinh trưởng">
+
+                        <span class="step-number">
+                            04
+                        </span>
+
+                    </div>
+
+
+                    <div class="process-content">
+
+                        <span class="process-label">
+                            GIAI ĐOẠN 04
+                        </span>
+
+                        <h3>
+                            Chăm sóc và bảo vệ cây
+                        </h3>
+
+                        <p class="process-time">
+                            Trong suốt thời gian sinh trưởng
+                        </p>
+
+                        <p>
+                            Đây là giai đoạn cần theo dõi thường xuyên.
+                            Người trồng kiểm tra độ ẩm, tình trạng lá,
+                            sâu bệnh và sự phát triển của cây để có biện
+                            pháp chăm sóc phù hợp.
+                        </p>
+
+                        <ul class="process-list">
+
+                            <li>
+                                <span>✓</span>
+                                Theo dõi độ ẩm của đất
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Quan sát sâu bệnh thường xuyên
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Ưu tiên biện pháp chăm sóc sinh học
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================================
+                     STEP 05
+                ========================================== -->
+                <article class="process-row reveal">
+
+                    <div class="process-image">
+
+                        <img
+                            src="img/farm/harvest.jpg"
+                            alt="Người nông dân thu hoạch rau">
+
+                        <span class="step-number">
+                            05
+                        </span>
+
+                    </div>
+
+
+                    <div class="process-content">
+
+                        <span class="process-label">
+                            GIAI ĐOẠN 05
+                        </span>
+
+                        <h3>
+                            Thu hoạch
+                        </h3>
+
+                        <p class="process-time">
+                            Khi rau đạt độ trưởng thành phù hợp
+                        </p>
+
+                        <p>
+                            Rau được thu hoạch khi đạt kích thước và chất
+                            lượng phù hợp. Quá trình thu hoạch được thực
+                            hiện cẩn thận để hạn chế dập nát và giữ được
+                            độ tươi của rau.
+                        </p>
+
+                        <ul class="process-list">
+
+                            <li>
+                                <span>✓</span>
+                                Chọn rau đạt tiêu chuẩn thu hoạch
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Hạn chế làm dập lá
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Phân loại ngay sau thu hoạch
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- =========================================
+                     STEP 06
+                ========================================== -->
+                <article class="process-row reverse reveal">
+
+                    <div class="process-image">
+
+                        <img
+                            src="img/farm/packing.jpg"
+                            alt="Rau tươi được phân loại và đóng gói">
+
+                        <span class="step-number">
+                            06
+                        </span>
+
+                    </div>
+
+
+                    <div class="process-content">
+
+                        <span class="process-label">
+                            GIAI ĐOẠN 06
+                        </span>
+
+                        <h3>
+                            Sơ chế và đóng gói
+                        </h3>
+
+                        <p class="process-time">
+                            Sau khi thu hoạch
+                        </p>
+
+                        <p>
+                            Sau khi thu hoạch, rau được kiểm tra, phân loại
+                            và chuẩn bị đóng gói. Mục tiêu là đưa sản phẩm
+                            đến người tiêu dùng trong trạng thái tươi,
+                            sạch và thuận tiện sử dụng.
+                        </p>
+
+                        <ul class="process-list">
+
+                            <li>
+                                <span>✓</span>
+                                Kiểm tra và phân loại
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Loại bỏ phần không đạt yêu cầu
+                            </li>
+
+                            <li>
+                                <span>✓</span>
+                                Đóng gói trước khi phân phối
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ORGANIC PRINCIPLES
+        ================================================== -->
+        <section class="organic-section">
+
+            <div class="container">
+
+                <div class="section-heading center reveal">
+
+                    <span class="section-label">
+                        NGUYÊN TẮC CANH TÁC
+                    </span>
+
+                    <h2>
+                        Bốn điều chúng tôi
+                        <span>luôn chú ý.</span>
+                    </h2>
+
+                    <p>
+                        Canh tác theo hướng hữu cơ không chỉ nằm ở
+                        việc trồng cây mà còn nằm ở cách người trồng
+                        chăm sóc đất, nước và môi trường xung quanh.
+                    </p>
+
+                </div>
+
+
+                <div class="organic-grid">
+
+                    <article class="organic-card reveal">
+
+                        <div class="organic-icon">
+                            🌱
+                        </div>
+
+                        <h3>
+                            Đất được ưu tiên
+                        </h3>
+
+                        <p>
+                            Duy trì độ tơi xốp và bổ sung nguồn hữu cơ
+                            phù hợp để hỗ trợ hệ sinh thái đất.
+                        </p>
+
+                    </article>
+
+
+                    <article class="organic-card reveal">
+
+                        <div class="organic-icon">
+                            💧
+                        </div>
+
+                        <h3>
+                            Sử dụng nước hợp lý
+                        </h3>
+
+                        <p>
+                            Theo dõi độ ẩm và cung cấp nước phù hợp
+                            với từng giai đoạn sinh trưởng.
+                        </p>
+
+                    </article>
+
+
+                    <article class="organic-card reveal">
+
+                        <div class="organic-icon">
+                            🐞
+                        </div>
+
+                        <h3>
+                            Ưu tiên biện pháp sinh học
+                        </h3>
+
+                        <p>
+                            Theo dõi sâu bệnh và ưu tiên các phương pháp
+                            chăm sóc sinh học khi điều kiện cho phép.
+                        </p>
+
+                    </article>
+
+
+                    <article class="organic-card reveal">
+
+                        <div class="organic-icon">
+                            ♻️
+                        </div>
+
+                        <h3>
+                            Hạn chế lãng phí
+                        </h3>
+
+                        <p>
+                            Tối ưu việc sử dụng vật tư và hướng đến
+                            quy trình sản xuất thân thiện hơn với môi trường.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HIGHLAND
+        ================================================== -->
+        <section class="highland-section">
+
+            <div class="container highland-grid">
+
+                <figure class="highland-image reveal">
+
+                    <img
+                        src="img/farm/highland.jpg"
+                        alt="Không gian trồng rau tại vùng cao nguyên">
+
+                    <div class="highland-stamp">
+                        <span>DALAT</span>
+                        <strong>FRESH</strong>
+                    </div>
+
+                </figure>
+
+
+                <div class="highland-content reveal">
+
+                    <span class="section-label">
+                        VÙNG CAO NGUYÊN
+                    </span>
+
+                    <h2>
+                        Điều kiện tự nhiên
+                        <span>là một phần của câu chuyện.</span>
+                    </h2>
+
+                    <p>
+                        Vùng cao nguyên có khí hậu và điều kiện tự nhiên
+                        phù hợp với nhiều loại rau. Đây là nền tảng để
+                        người trồng xây dựng những mùa vụ đa dạng và
+                        lựa chọn phương pháp chăm sóc phù hợp.
+                    </p>
+
+                    <div class="highland-facts">
+
+                        <div class="fact">
+
+                            <strong>01</strong>
+
+                            <div>
+                                <h3>Khí hậu mát</h3>
+                                <p>
+                                    Thuận lợi cho nhiều nhóm rau ôn đới.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <strong>02</strong>
+
+                            <div>
+                                <h3>Đất trồng</h3>
+                                <p>
+                                    Là nền tảng cần được chăm sóc
+                                    trong từng mùa vụ.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="fact">
+
+                            <strong>03</strong>
+
+                            <div>
+                                <h3>Người nông dân</h3>
+                                <p>
+                                    Kinh nghiệm thực tế giúp điều chỉnh
+                                    quy trình theo từng mùa.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FARMERS
+        ================================================== -->
+        <section
+            class="farmers-section"
+            id="nguoi-nong-dan">
+
+            <div class="container farmers-grid">
+
+                <div class="farmers-content reveal">
+
+                    <span class="section-label">
+                        NHỮNG NGƯỜI ĐỨNG SAU BÓ RAU
+                    </span>
+
+                    <h2>
+                        Một bó rau tươi
+                        <span>có rất nhiều bàn tay.</span>
+                    </h2>
+
+                    <p>
+                        Đằng sau mỗi sản phẩm là những công việc lặp lại
+                        mỗi ngày: kiểm tra cây, chăm đất, tưới nước,
+                        phát hiện sâu bệnh, thu hoạch và phân loại.
+                    </p>
+
+                    <p>
+                        Câu chuyện nông trại vì thế không chỉ là câu chuyện
+                        của cây rau. Đó còn là câu chuyện về sự kiên nhẫn,
+                        kinh nghiệm và trách nhiệm của người trồng.
+                    </p>
+
+                    <div class="farmer-quote">
+
+                        <span class="quote-mark">“</span>
+
+                        <p>
+                            Chăm cây mỗi ngày để người dùng có thể
+                            yên tâm hơn khi chọn rau cho gia đình.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <figure class="farmers-image reveal">
+
+                    <img
+                        src="img/farm/farmers.jpg"
+                        alt="Người nông dân làm việc tại nông trại">
+
+                    <figcaption>
+                        Người nông dân là một phần quan trọng
+                        trong hành trình của mỗi bó rau.
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HARVEST DAY
+        ================================================== -->
+        <section class="harvest-section">
+
+            <div class="container">
+
+                <div class="section-heading center reveal">
+
+                    <span class="section-label">
+                        MỘT NGÀY Ở NÔNG TRẠI
+                    </span>
+
+                    <h2>
+                        Từ buổi sáng
+                        <span>đến khi rau lên kệ.</span>
+                    </h2>
+
+                    <p>
+                        Một ngày làm việc được tạo nên từ nhiều công đoạn
+                        nhỏ nối tiếp nhau.
+                    </p>
+
+                </div>
+
+
+                <div class="harvest-timeline">
+
+                    <div class="timeline-item reveal">
+
+                        <span class="timeline-time">
+                            SÁNG
+                        </span>
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <h3>
+                                Kiểm tra ruộng
+                            </h3>
+
+                            <p>
+                                Quan sát cây, đất và tình trạng sinh trưởng.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <span class="timeline-time">
+                            THU HOẠCH
+                        </span>
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <h3>
+                                Chọn rau đạt độ trưởng thành
+                            </h3>
+
+                            <p>
+                                Rau được chọn và thu hoạch cẩn thận.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <span class="timeline-time">
+                            SƠ CHẾ
+                        </span>
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <h3>
+                                Phân loại và làm sạch
+                            </h3>
+
+                            <p>
+                                Loại bỏ phần không đạt yêu cầu trước
+                                khi đóng gói.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <span class="timeline-time">
+                            PHÂN PHỐI
+                        </span>
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <h3>
+                                Chuẩn bị đến tay khách hàng
+                            </h3>
+
+                            <p>
+                                Sản phẩm được đóng gói và chuyển đến
+                                điểm bán hoặc khách hàng.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TRACEABILITY
+        ================================================== -->
+        <section class="trace-section">
+
+            <div class="container">
+
+                <div class="trace-box reveal">
+
+                    <div class="trace-content">
+
+                        <span class="section-label">
+                            TRUY XUẤT NGUỒN GỐC
+                        </span>
+
+                        <h2>
+                            Biết sản phẩm
+                            <span>đến từ đâu.</span>
+                        </h2>
+
+                        <p>
+                            Thông tin về vùng trồng, mùa vụ và quá trình
+                            xử lý có thể được quản lý theo từng lô sản phẩm.
+                            Đây là nền tảng để xây dựng hệ thống truy xuất
+                            nguồn gốc minh bạch.
+                        </p>
+
+                        <div class="trace-demo">
+
+                            <div class="trace-row">
+                                <span>Mã lô</span>
+                                <strong>DF-FARM-001</strong>
+                            </div>
+
+                            <div class="trace-row">
+                                <span>Nhóm sản phẩm</span>
+                                <strong>Rau lá</strong>
+                            </div>
+
+                            <div class="trace-row">
+                                <span>Vùng trồng</span>
+                                <strong>Cao nguyên</strong>
+                            </div>
+
+                            <div class="trace-row">
+                                <span>Trạng thái</span>
+                                <strong class="status">
+                                    Đã kiểm tra
+                                </strong>
+                            </div>
+
+                        </div>
+
+                        <small class="trace-note">
+                            * Dữ liệu trên là mẫu minh họa cho giao diện
+                            truy xuất nguồn gốc.
+                        </small>
+
+                    </div>
+
+
+                    <div class="trace-visual">
+
+                        <div class="trace-card">
+
+                            <div class="trace-qr">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                            <strong>
+                                DF-FARM-001
+                            </strong>
+
+                            <small>
+                                TRUY XUẤT LÔ SẢN PHẨM
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FINAL CTA
+        ================================================== -->
+        <section class="farm-cta">
+
+            <div class="container">
+
+                <div class="cta-inner reveal">
+
+                    <span class="section-label">
+                        TỪ NÔNG TRẠI ĐẾN GIA ĐÌNH
+                    </span>
+
+                    <h2>
+                        Một hành trình dài
+                        <span>cho một bữa ăn tươi.</span>
+                    </h2>
+
+                    <p>
+                        Khám phá những sản phẩm rau củ được tuyển chọn
+                        từ câu chuyện nông trại của Dalat Fresh.
+                    </p>
+
+                    <div class="cta-buttons">
+
+                        <a
+                            href="products.html"
+                            class="btn btn-light">
+                            Xem sản phẩm
+                            <span>→</span>
+                        </a>
+
+                        <a
+                            href="contact.html"
+                            class="btn btn-ghost">
+                            Liên hệ với chúng tôi
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand footer-brand-link">
+
+                    <span class="brand-mark">
+                        DF
+                    </span>
+
+                    <span class="brand-text">
+                        <strong>Dalat Fresh</strong>
+                        <small>Rau sạch từ cao nguyên</small>
+                    </span>
+
+                </a>
+
+                <p>
+                    Mang những sản phẩm rau củ tươi đến gần hơn
+                    với mỗi gia đình.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Khám phá
+                </h3>
+
+                <a href="index.html">
+                    Trang chủ
+                </a>
+
+                <a href="products.html">
+                    Sản phẩm
+                </a>
+
+                <a href="farm-story.html">
+                    Câu chuyện nông trại
+                </a>
+
+                <a href="certifications.html">
+                    Chứng nhận
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Hỗ trợ
+                </h3>
+
+                <a href="contact.html">
+                    Liên hệ
+                </a>
+
+                <a href="#">
+                    Chính sách giao hàng
+                </a>
+
+                <a href="#">
+                    Chính sách đổi trả
+                </a>
+
+                <a href="#">
+                    Câu hỏi thường gặp
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Liên hệ
+                </h3>
+
+                <p>
+                    📍 Đà Lạt, Lâm Đồng
+                </p>
+
+                <p>
+                    ☎ 0123 456 789
+                </p>
+
+                <p>
+                    ✉ hello@dalatfresh.vn
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    © 2026 Dalat Fresh. All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- JS -->
+<script src="js/nav.js"></script>
+<script src="js/farm-story.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,352 @@
+/* =========================================================
+   Dalat Fresh — responsive.css
+   Lớp tiện ích responsive dùng chung cho cả 3 trang.
+   Nạp SAU CÙNG (sau style.css/products.css/farm-story.css
+   và sau header.css) vì có dùng biến --forest, --leaf...
+   từ :root khai báo trong header.css.
+
+   Chỉ thêm lớp tiện ích MỚI (hide-*, show-*, stack-*...),
+   không đụng tới các selector đã có (.hero-title, .product-card...)
+   để không đè nhầm lên CSS riêng của từng trang.
+
+   Mốc màn hình dùng chung trong dự án:
+     ≥1240px  desktop rộng
+     1000–1239px desktop / tablet ngang
+     600–999px  tablet / mobile ngang
+     <600px    mobile đứng
+   ========================================================= */
+
+/* ---------------- Ẩn/hiện theo màn hình ---------------- */
+.hide-mobile{ display:revert; }
+.show-mobile{ display:none !important; }
+
+@media (max-width:999px){
+  .hide-mobile{ display:none !important; }
+  .show-mobile{ display:revert !important; }
+}
+
+.hide-desktop{ display:none !important; }
+.show-desktop{ display:revert; }
+
+@media (max-width:999px){
+  .hide-desktop{ display:revert !important; }
+  .show-desktop{ display:none !important; }
+}
+
+/* ---------------- Chữ giữa trên mobile, trái trên desktop ---------------- */
+.center-on-mobile{ text-align:left; }
+@media (max-width:999px){
+  .center-on-mobile{ text-align:center; }
+}
+
+/* ---------------- Xếp cột dọc trên mobile ---------------- */
+.stack-on-mobile{ display:flex; gap:14px; }
+@media (max-width:600px){
+  .stack-on-mobile{ flex-direction:column; }
+  .stack-on-mobile > *{ width:100%; }
+}
+
+/* ---------------- Bảng/khối rộng: cuộn ngang thay vì vỡ layout ---------------- */
+.scroll-x{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+}
+.scroll-x::-webkit-scrollbar{ height:6px; }
+.scroll-x::-webkit-scrollbar-thumb{
+  background:var(--line, rgba(20,83,45,.18));
+  border-radius:99px;
+}
+
+/* ---------------- Ảnh/hình vuông đều nhau (thẻ sản phẩm, avatar...) ---------------- */
+.ratio-square{ aspect-ratio:1/1; object-fit:cover; }
+.ratio-video{ aspect-ratio:16/9; object-fit:cover; }
+
+/* ---------------- Khoảng cách section rút gọn dần theo màn hình ---------------- */
+.section-space{ padding-block:88px; }
+@media (max-width:999px){
+  .section-space{ padding-block:64px; }
+}
+@media (max-width:600px){
+  .section-space{ padding-block:44px; }
+}
+
+/* ---------------- Vùng chạm tối thiểu 44px cho ngón tay trên mobile ---------------- */
+@media (max-width:600px){
+  .tap-target{
+    min-width:44px;
+    min-height:44px;
+  }
+}
+
+/* ---------------- An toàn tai thỏ / thanh điều hướng cong (điện thoại) ---------------- */
+.safe-top{ padding-top:env(safe-area-inset-top,0px); }
+.safe-bottom{ padding-bottom:env(safe-area-inset-bottom,0px); }
+
+/* ---------------- In trang: bỏ nền màu, bỏ nút bấm ---------------- */
+@media print{
+  .site-header,
+  .burger,
+  .cart-btn,
+  .search,
+  .toast,
+  .hero-actions,
+  .btn{
+    display:none !important;
+  }
+  body{ background:#fff !important; }
+  .shell,
+  .products-shell{
+    box-shadow:none !important;
+    margin:0 !important;
+  }
+}
+
+/* ---------------- Người dùng yêu cầu tương phản cao hơn ---------------- */
+@media (prefers-contrast:more){
+  :root{
+    --line:rgba(20,83,45,.35);
+    --ink-soft:#3C453A;
+  }
+}
+/* =========================================================
+   FIX KHỐI "THÔNG TIN RAU TƯƠI HÔM NAY"
+   ========================================================= */
+
+.fresh-harvest-ticket {
+    width: 100% !important;
+
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+
+    margin-top: 30px !important;
+
+    overflow: hidden !important;
+
+    background: #fff !important;
+
+    border: 1px solid #e4eadf !important;
+    border-radius: 20px !important;
+
+    box-shadow: 0 10px 28px rgba(35, 80, 47, 0.07) !important;
+}
+
+
+/* ===============================
+   4 Ô
+   =============================== */
+
+.fresh-harvest-ticket .fresh-ticket-item {
+    box-sizing: border-box !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+
+    min-height: 110px !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+
+    gap: 14px !important;
+
+    padding: 20px !important;
+}
+
+
+/* Đường ngăn giữa các ô */
+
+.fresh-harvest-ticket .fresh-ticket-item + .fresh-ticket-item {
+    border-left: 1px solid #e5ebe2 !important;
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.fresh-harvest-ticket .ticket-icon {
+    box-sizing: border-box !important;
+
+    width: 46px !important;
+    height: 46px !important;
+
+    min-width: 46px !important;
+    min-height: 46px !important;
+
+    max-width: 46px !important;
+    max-height: 46px !important;
+
+    flex: 0 0 46px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 14px !important;
+
+    line-height: 1 !important;
+
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   QUAN TRỌNG NHẤT
+   ÉP SVG KHÔNG ĐƯỢC PHÓNG TO
+   ========================================================= */
+
+.fresh-harvest-ticket .ticket-icon svg {
+    display: block !important;
+
+    width: 22px !important;
+    height: 22px !important;
+
+    min-width: 22px !important;
+    min-height: 22px !important;
+
+    max-width: 22px !important;
+    max-height: 22px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* Icon lá 🌿 cũng không bị phóng */
+
+.fresh-harvest-ticket .ticket-icon span {
+    display: block !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    font-size: 19px !important;
+    line-height: 1 !important;
+}
+
+
+/* =========================================================
+   MÀU ICON
+   ========================================================= */
+
+.fresh-harvest-ticket .ticket-sun {
+    background: #fff3d5 !important;
+    color: #b98516 !important;
+}
+
+.fresh-harvest-ticket .ticket-clock {
+    background: #e8f3e4 !important;
+    color: #347c49 !important;
+}
+
+.fresh-harvest-ticket .ticket-location {
+    background: #edf3e8 !important;
+    color: #39794c !important;
+}
+
+.fresh-harvest-ticket .ticket-leaf {
+    background: #e5f1df !important;
+    color: #347b48 !important;
+}
+
+
+/* =========================================================
+   PHẦN CHỮ
+   ========================================================= */
+
+.fresh-harvest-ticket .ticket-content {
+    min-width: 0 !important;
+
+    flex: 1 1 auto !important;
+}
+
+
+.fresh-harvest-ticket .ticket-content > span {
+    display: block !important;
+
+    margin: 0 0 5px !important;
+
+    color: #8a9289 !important;
+
+    font-size: 9px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.3 !important;
+
+    letter-spacing: 1px !important;
+}
+
+
+.fresh-harvest-ticket .ticket-content strong {
+    display: block !important;
+
+    margin: 0 !important;
+
+    color: #205b36 !important;
+
+    font-size: 14px !important;
+    font-weight: 800 !important;
+
+    line-height: 1.4 !important;
+}
+
+
+.fresh-harvest-ticket .ticket-content small {
+    display: block !important;
+
+    margin: 4px 0 0 !important;
+
+    color: #818980 !important;
+
+    font-size: 10px !important;
+
+    line-height: 1.4 !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .fresh-harvest-ticket {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .fresh-harvest-ticket .fresh-ticket-item:nth-child(3),
+    .fresh-harvest-ticket .fresh-ticket-item:nth-child(4) {
+        border-top: 1px solid #e5ebe2 !important;
+    }
+
+    .fresh-harvest-ticket .fresh-ticket-item:nth-child(3) {
+        border-left: none !important;
+    }
+}
+
+
+/* =========================================================
+   ĐIỆN THOẠI
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .fresh-harvest-ticket {
+        grid-template-columns: 1fr !important;
+    }
+
+    .fresh-harvest-ticket .fresh-ticket-item {
+        min-height: 90px !important;
+    }
+
+    .fresh-harvest-ticket .fresh-ticket-item + .fresh-ticket-item {
+        border-left: none !important;
+        border-top: 1px solid #e5ebe2 !important;
+    }
+
+}

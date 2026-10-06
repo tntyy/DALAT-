@@ -1,0 +1,90 @@
+/* =========================================================
+   Dalat Fresh — reset.css
+   Reset nền tảng, KHÔNG chứa màu sắc hay font riêng của dự án.
+   Nạp đầu tiên, trước style.css / products.css / farm-story.css.
+   ========================================================= */
+
+*, *::before, *::after{
+  box-sizing:border-box;
+}
+
+* {
+  margin:0;
+}
+
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+html, body{
+  height:100%;
+}
+
+body{
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+/* Ảnh/media không tràn khung và bỏ khoảng trắng dưới ảnh */
+img, picture, svg, video, canvas{
+  display:block;
+  max-width:100%;
+}
+
+/* Chữ trong form kế thừa font của trang thay vì font mặc định trình duyệt */
+input, button, textarea, select{
+  font:inherit;
+  color:inherit;
+}
+button{
+  cursor:pointer;
+}
+button:disabled{
+  cursor:not-allowed;
+}
+
+/* Bỏ kiểu số/chấm mặc định của danh sách — nơi nào cần thì tự thêm lại */
+ul, ol{
+  list-style:none;
+}
+
+/* Chữ không tự vỡ dòng giữa từ, tràn dòng thì tự xuống */
+p, h1, h2, h3, h4, h5, h6{
+  overflow-wrap:break-word;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+table{
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+fieldset{
+  border:0;
+  padding:0;
+}
+
+/* Vòng focus rõ ràng cho người dùng bàn phím, ẩn khi bấm chuột */
+:focus:not(:focus-visible){
+  outline:none;
+}
+:focus-visible{
+  outline:3px solid currentColor;
+  outline-offset:3px;
+}
+
+/* Tôn trọng lựa chọn giảm hiệu ứng chuyển động của hệ điều hành */
+@media (prefers-reduced-motion:reduce){
+  *, *::before, *::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}

@@ -1,0 +1,229 @@
+/* =========================================================
+   Dalat Fresh — header.css
+   Header DÙNG CHUNG cho index.html, products.html, farm-story.html
+   Nạp file này SAU file css riêng của từng trang.
+   Muốn sửa menu → chỉ sửa ở đây, cả 3 trang tự đồng bộ.
+   ========================================================= */
+
+:root{
+  --cream:#FBF8EF;
+  --cream-deep:#F3EEDF;
+  --white:#FFFFFF;
+  --forest:#14532D;
+  --forest-dark:#0E3F22;
+  --leaf:#3FA34D;
+  --leaf-soft:#E8F3E0;
+  --sun:#F5B921;
+  --sun-deep:#7A5307;
+  --ink:#232A22;
+  --ink-soft:#5B6558;
+  --line:rgba(20,83,45,.12);
+
+  --r-sm:12px;
+  --r-md:18px;
+  --r-lg:28px;
+  --r-xl:40px;
+  --r-pill:999px;
+
+  --sh-sm:0 6px 18px rgba(20,83,45,.07);
+  --sh-md:0 14px 34px rgba(20,83,45,.10);
+  --sh-lg:0 26px 60px rgba(20,83,45,.14);
+
+  --wrap:1280px;
+  --font-title:"Playfair Display",Georgia,serif;
+  --font-body:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;
+}
+
+.wrap{ width:min(100% - 48px, var(--wrap)); margin-inline:auto; }
+
+/* Khung bo tròn bao cả trang.
+   Dùng overflow:clip (không phải hidden) để header sticky vẫn dính khi cuộn. */
+.shell,
+.products-shell{
+  background:var(--cream);
+  border-radius:var(--r-xl);
+  margin:18px;
+  overflow:hidden;
+  overflow:clip;
+  box-shadow:0 30px 80px rgba(20,83,45,.10);
+}
+
+/* ---------------- Khung header ---------------- */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(251,248,239,.94);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(20,83,45,.06);
+  transition:box-shadow .25s;
+}
+.site-header.is-stuck{ box-shadow:0 8px 24px rgba(20,83,45,.08); }
+
+.header-inner{
+  display:flex; align-items:center; gap:20px;
+  min-height:88px; padding:14px 0;
+}
+
+/* ---------------- Logo ---------------- */
+.brand{ display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.brand img{ width:44px; height:44px; }
+.brand-name{
+  font-family:var(--font-title); font-size:27px; font-weight:700;
+  line-height:1; letter-spacing:-.5px; color:var(--forest); white-space:nowrap;
+}
+.brand-name em{ font-style:normal; font-weight:600; color:var(--leaf); }
+
+/* ---------------- Menu chính ---------------- */
+.main-nav{ margin-inline:auto; }
+.main-nav > ul{
+  display:flex; align-items:center; gap:4px;
+  margin:0; padding:0; list-style:none;
+}
+.main-nav a,
+.nav-toggle{
+  position:relative;
+  display:inline-flex; align-items:center; gap:6px;
+  padding:10px 14px; border:0; border-radius:var(--r-pill);
+  background:none; color:var(--ink-soft);
+  font-family:var(--font-body); font-size:15px; font-weight:500; line-height:1.2;
+  white-space:nowrap; cursor:pointer;
+  transition:color .18s, background .18s;
+}
+.main-nav a:hover,
+.nav-toggle:hover{ color:var(--forest); background:var(--leaf-soft); }
+
+/* mục đang mở: gạch chân xanh */
+.main-nav a.is-active,
+.nav-toggle.is-active{ color:var(--forest); font-weight:600; }
+.main-nav a.is-active::after,
+.nav-toggle.is-active::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:2px;
+  height:2.5px; border-radius:2px; background:var(--leaf);
+}
+
+.chev{ width:11px; height:8px; transition:transform .2s; }
+.has-menu.is-open .chev{ transform:rotate(180deg); }
+
+/* ---------------- Dropdown ---------------- */
+.has-menu{ position:relative; }
+.dropdown{
+  position:absolute; top:calc(100% + 8px); left:0; z-index:5;
+  min-width:206px; margin:0; padding:8px; list-style:none;
+  background:var(--white); border:1px solid var(--line);
+  border-radius:var(--r-md); box-shadow:var(--sh-md);
+  opacity:0; visibility:hidden; transform:translateY(-6px);
+  transition:opacity .18s, transform .18s, visibility .18s;
+}
+/* triệt tiêu rule :hover cũ còn sót trong products.css → mở bằng click như trang chủ */
+.has-menu:hover .dropdown{ opacity:0; visibility:hidden; transform:translateY(-6px); }
+.has-menu.is-open .dropdown{ opacity:1; visibility:visible; transform:none; }
+
+.dropdown a{
+  display:block; width:100%; padding:9px 12px;
+  border-radius:var(--r-sm); font-size:14.5px;
+}
+
+/* ---------------- Khu vực bên phải ---------------- */
+.header-tools{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
+
+.search{ position:relative; width:190px; }
+.search input{
+  width:100%; height:44px; padding:0 42px 0 18px;
+  border:1px solid var(--line); border-radius:var(--r-pill);
+  background:var(--white); color:var(--ink);
+  font-family:var(--font-body); font-size:14px; outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+.search input::placeholder{ color:#9AA396; }
+.search input:focus{ width:100%; border-color:var(--leaf); box-shadow:0 0 0 3px rgba(63,163,77,.12); }
+.search button{
+  position:absolute; right:6px; top:50%; transform:translateY(-50%);
+  width:30px; height:30px; display:grid; place-items:center;
+  border:0; border-radius:50%; background:transparent; color:var(--ink-soft);
+}
+.search svg{ width:19px; height:19px; }
+
+.icon-btn{
+  width:44px; height:44px; display:grid; place-items:center;
+  border:1px solid var(--line); border-radius:50%;
+  background:var(--white); color:var(--forest);
+  box-shadow:var(--sh-sm); transition:transform .18s;
+}
+.icon-btn:hover{ transform:translateY(-2px); }
+.icon-btn svg{ width:21px; height:21px; }
+
+.cart-btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  min-width:0; height:46px; padding:0 22px;
+  border:0; border-radius:24px;
+  background:var(--forest); color:#fff;
+  font-family:var(--font-body); font-size:14.5px; font-weight:700; white-space:nowrap;
+  box-shadow:0 10px 22px rgba(20,83,45,.28);
+  transition:transform .18s, background .18s;
+}
+.cart-btn:hover{ background:var(--forest-dark); transform:translateY(-2px); }
+.cart-btn svg{ width:21px; height:21px; }
+.cart-btn.bump{ animation:cartBump .4s ease; }
+@keyframes cartBump{ 50%{ transform:scale(1.12); } }
+
+.burger{
+  display:none; width:44px; height:44px; padding:0;
+  border:1px solid var(--line); border-radius:14px; background:var(--white);
+}
+.burger span{
+  display:block; width:20px; height:2px; margin:4px auto;
+  background:var(--forest); border-radius:2px; transition:.25s;
+}
+.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+/* ---------------- Responsive ---------------- */
+@media (max-width:1240px){
+  .search{ width:150px; }
+  .main-nav a,
+  .nav-toggle{ padding:10px 10px; font-size:14.5px; }
+  .main-nav a.is-active::after,
+  .nav-toggle.is-active::after{ left:10px; right:10px; }
+}
+
+@media (max-width:1080px){
+  .search{ display:none; }
+}
+
+@media (max-width:1000px){
+  .shell,
+  .products-shell{ margin:10px; border-radius:26px; }
+  .wrap{ width:min(100% - 32px, var(--wrap)); }
+  .header-inner{ min-height:80px; }
+  .burger{ display:block; }
+
+  .main-nav{
+    position:absolute; top:100%; left:16px; right:16px; margin:0; padding:14px;
+    display:none; background:var(--white);
+    border-radius:var(--r-lg); box-shadow:var(--sh-lg);
+  }
+  .main-nav.is-open{ display:block; }
+  .main-nav > ul{ flex-direction:column; align-items:stretch; gap:2px; }
+  .main-nav a,
+  .nav-toggle{ width:100%; justify-content:space-between; padding:13px 16px; }
+  .main-nav a.is-active::after,
+  .nav-toggle.is-active::after{ display:none; }
+
+  .dropdown{
+    position:static; display:none; min-width:0; margin:4px 0 8px;
+    background:var(--leaf-soft); border:0; box-shadow:none;
+    opacity:1; visibility:visible; transform:none;
+  }
+  .has-menu:hover .dropdown{ opacity:1; visibility:visible; transform:none; }
+  .has-menu.is-open .dropdown{ display:block; }
+}
+
+@media (max-width:600px){
+  .header-inner{ min-height:72px; gap:12px; }
+  .brand img{ width:38px; height:38px; }
+  .brand-name{ font-size:22px; }
+  .icon-btn{ display:none; }
+  .cart-btn{ padding:0 16px; gap:0; font-size:0; }
+  .cart-btn svg{ width:20px; height:20px; }
+}

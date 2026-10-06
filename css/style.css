@@ -1,0 +1,2224 @@
+/* =========================================================
+   Dalat Fresh — style.css
+   Bảng màu: kem sữa · xanh rừng · xanh lá non · vàng nắng
+   ========================================================= */
+
+:root{
+  --cream:      #FBF8EF;
+  --cream-deep: #F3EEDF;
+  --white:      #FFFFFF;
+  --forest:     #14532D;   /* xanh rêu đậm - nút chính, footer */
+  --leaf:       #3FA34D;   /* xanh lá - nhấn chữ, icon */
+  --leaf-soft:  #E8F3E0;
+  --sun:        #F5B921;   /* vàng - nút phụ */
+  --sun-deep:   #7A5307;
+  --ink:        #232A22;
+  --ink-soft:   #5B6558;
+  --line:       rgba(20,83,45,.12);
+
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 28px;
+  --r-xl: 40px;
+  --r-pill: 999px;
+
+  --sh-sm: 0 6px 18px rgba(20,83,45,.07);
+  --sh-md: 0 14px 34px rgba(20,83,45,.10);
+  --sh-lg: 0 26px 60px rgba(20,83,45,.14);
+
+  --wrap: 1280px;
+  --font-title: "Playfair Display", Georgia, serif;
+  --font-body: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; scroll-padding-top:110px; }
+
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:
+    radial-gradient(1100px 600px at 12% -5%, #EFF6E6 0%, transparent 60%),
+    radial-gradient(900px 500px at 92% 8%, #F6F2E0 0%, transparent 62%),
+    var(--cream-deep);
+  padding-top:env(safe-area-inset-top,0px);
+  -webkit-font-smoothing:antialiased;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; margin:0; padding:0; }
+button{ font:inherit; cursor:pointer; }
+
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+.skip-link{
+  position:absolute; left:16px; top:-60px; z-index:100;
+  background:var(--forest); color:#fff; padding:10px 18px; border-radius:var(--r-pill);
+  transition:top .2s;
+}
+.skip-link:focus{ top:16px; }
+
+:focus-visible{ outline:3px solid var(--leaf); outline-offset:3px; border-radius:6px; }
+
+.wrap{ width:min(100% - 48px, var(--wrap)); margin-inline:auto; }
+
+/* Khung bo tròn lớn bao toàn trang — giống mockup */
+.shell{
+  background:var(--cream);
+  border-radius:var(--r-xl);
+  margin:18px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(20,83,45,.10);
+}
+
+/* =================== HEADER =================== */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  padding-top:env(safe-area-inset-top,0px);
+  background:rgba(251,248,239,.72);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  transition:box-shadow .25s, background .25s;
+}
+.site-header.is-stuck{ background:rgba(251,248,239,.95); box-shadow:0 8px 24px rgba(20,83,45,.08); }
+
+.header-inner{
+  display:flex; align-items:center; gap:28px;
+  padding:16px 0;
+}
+
+.brand{ display:flex; align-items:center; gap:10px; flex-shrink:0; }
+.brand img{ width:44px; height:44px; }
+.brand-name{
+  font-family:var(--font-title); font-size:1.7rem; font-weight:700;
+  color:var(--forest); letter-spacing:-.01em; line-height:1;
+}
+.brand-name em{ font-style:normal; font-weight:600; color:var(--leaf); }
+
+.main-nav{ margin-inline:auto; }
+.main-nav > ul{ display:flex; align-items:center; gap:6px; }
+.main-nav a,
+.nav-toggle{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:10px 14px; border-radius:var(--r-pill);
+  color:var(--ink-soft); font-weight:500; font-size:.97rem;
+  background:none; border:0; transition:color .18s, background .18s;
+}
+.main-nav a:hover,.nav-toggle:hover{ color:var(--forest); background:var(--leaf-soft); }
+.main-nav a.is-active{ color:var(--forest); font-weight:600; position:relative; }
+.main-nav a.is-active::after{
+  content:""; position:absolute; left:14px; right:14px; bottom:2px;
+  height:2.5px; border-radius:2px; background:var(--leaf);
+}
+.chev{ width:11px; height:8px; transition:transform .2s; }
+.has-menu.is-open .chev{ transform:rotate(180deg); }
+
+.has-menu{ position:relative; }
+.dropdown{
+  position:absolute; top:calc(100% + 8px); left:0; min-width:206px;
+  background:var(--white); border-radius:var(--r-md);
+  box-shadow:var(--sh-md); border:1px solid var(--line);
+  padding:8px; opacity:0; visibility:hidden; transform:translateY(-6px);
+  transition:opacity .18s, transform .18s, visibility .18s;
+}
+.has-menu.is-open .dropdown{ opacity:1; visibility:visible; transform:none; }
+.dropdown a{ display:block; padding:9px 12px; border-radius:var(--r-sm); font-size:.94rem; }
+
+.header-tools{ display:flex; align-items:center; gap:12px; flex-shrink:0; }
+
+.search{ position:relative; }
+.search input{
+  width:220px; padding:11px 42px 11px 18px;
+  border:1px solid var(--line); border-radius:var(--r-pill);
+  background:var(--white); font:inherit; font-size:.9rem; color:var(--ink);
+  transition:width .25s, border-color .2s;
+}
+.search input::placeholder{ color:#9AA396; }
+.search input:focus{ width:260px; border-color:var(--leaf); outline:none; }
+.search button{
+  position:absolute; right:6px; top:50%; transform:translateY(-50%);
+  width:30px; height:30px; display:grid; place-items:center;
+  border:0; background:none; color:var(--ink-soft); border-radius:50%;
+}
+.search svg{ width:19px; height:19px; }
+
+.icon-btn{
+  width:44px; height:44px; display:grid; place-items:center;
+  background:var(--white); border:1px solid var(--line); border-radius:50%;
+  color:var(--forest); box-shadow:var(--sh-sm); transition:transform .18s;
+}
+.icon-btn:hover{ transform:translateY(-2px); }
+.icon-btn svg{ width:21px; height:21px; }
+
+.cart-btn{
+  display:inline-flex; align-items:center; gap:9px;
+  padding:12px 22px; border:0; border-radius:var(--r-pill);
+  background:var(--forest); color:#fff; font-weight:600; font-size:.94rem;
+  box-shadow:0 10px 22px rgba(20,83,45,.28); transition:transform .18s, background .18s;
+}
+.cart-btn:hover{ background:#0E3F22; transform:translateY(-2px); }
+.cart-btn svg{ width:21px; height:21px; }
+.cart-btn.bump{ animation:bump .4s ease; }
+@keyframes bump{ 50%{ transform:scale(1.12); } }
+
+.burger{ display:none; width:44px; height:44px; border:1px solid var(--line);
+  background:var(--white); border-radius:14px; padding:0; }
+.burger span{ display:block; width:20px; height:2px; margin:4px auto; background:var(--forest); border-radius:2px; transition:.25s; }
+.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+/* =================== HERO =================== */
+.hero{ position:relative; padding:34px 0 0; overflow:hidden; }
+
+.blur-leaf{
+  position:absolute; width:300px; opacity:.32; filter:blur(7px);
+  pointer-events:none; z-index:0;
+}
+.leaf-tl{ top:-70px; left:-90px; transform:rotate(18deg); }
+.leaf-bl{ bottom:120px; left:-110px; transform:rotate(-24deg); width:340px; }
+.leaf-tr{ top:-40px; right:-80px; transform:rotate(140deg); }
+.leaf-br{ bottom:60px; right:-100px; transform:rotate(-60deg); width:280px; }
+
+.hero-grid{
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:30px; align-items:center;
+}
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:9px;
+  margin:0 0 26px; padding:9px 20px 9px 14px;
+  background:var(--white); border:1px solid var(--line);
+  border-radius:var(--r-pill); box-shadow:var(--sh-sm);
+  font-size:.9rem; font-weight:500; color:var(--ink-soft);
+}
+.eyebrow svg{ width:18px; height:18px; color:var(--leaf); }
+
+.hero-title{
+  font-family:var(--font-title); font-weight:700;
+  font-size:clamp(2.4rem, 4.6vw, 4.05rem);
+  line-height:1.08; letter-spacing:-.022em;
+  margin:0 0 22px; color:var(--forest);
+}
+
+.hero-sub{
+  margin:0 0 34px; max-width:47ch;
+  font-size:1.07rem; line-height:1.75; color:var(--ink-soft);
+}
+
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:16px 30px; border-radius:var(--r-pill);
+  font-weight:600; font-size:1rem; border:0;
+  transition:transform .18s, box-shadow .18s, background .18s;
+}
+.btn svg{ width:19px; height:15px; transition:transform .2s; }
+.btn:hover svg{ transform:translateX(4px); }
+.btn-primary{ background:var(--forest); color:#fff; box-shadow:0 14px 28px rgba(20,83,45,.28); }
+.btn-primary:hover{ background:#0E3F22; transform:translateY(-2px); }
+.btn-accent{ background:var(--sun); color:var(--sun-deep); box-shadow:0 14px 28px rgba(245,185,33,.34); }
+.btn-accent:hover{ background:#E9AC10; transform:translateY(-2px); }
+.btn-light{ background:#fff; color:var(--forest); box-shadow:var(--sh-md); }
+.btn-light:hover{ transform:translateY(-2px); }
+
+/* --- Ảnh hero + thẻ nổi --- */
+.hero-visual{ position:relative; }
+.hero-img{
+  width:100%; height:auto;
+  filter:drop-shadow(0 30px 40px rgba(20,83,45,.16));
+}
+
+.float-card{
+  position:absolute; z-index:3;
+  display:flex; align-items:center; gap:13px;
+  padding:14px 20px 14px 14px;
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:var(--r-md); box-shadow:var(--sh-lg);
+  will-change:transform;
+}
+.float-card strong{ display:block; font-size:.96rem; color:var(--forest); }
+.float-card span{ display:block; font-size:.83rem; color:var(--ink-soft); margin-top:2px; }
+
+.fc-icon{ width:42px; height:42px; flex-shrink:0; display:grid; place-items:center; border-radius:50%; }
+.fc-icon svg{ width:22px; height:22px; }
+.fc-green{ background:var(--leaf-soft); color:var(--leaf); }
+.fc-amber{ background:#FDF0D2; color:#C98A06; }
+.fc-star{ background:#FDF0D2; color:var(--sun); }
+
+.card-natural{ top:4%; left:-2%; }
+.card-delivery{ bottom:22%; left:-6%; }
+.card-rating{ top:52%; right:-1%; }
+
+.rating-body strong{ font-size:1.22rem; }
+.avatars{ display:flex; align-items:center; margin-top:8px; }
+.avatars img,.avatar-more{
+  width:30px; height:30px; border-radius:50%;
+  border:2.5px solid #fff; margin-left:-9px;
+}
+.avatars img:first-child{ margin-left:0; }
+.avatar-more{
+  display:grid; place-items:center; background:var(--leaf); color:#fff;
+  font-size:1rem; font-weight:600; line-height:1;
+}
+
+/* --- Thanh lợi ích --- */
+.usp-bar{
+  position:relative; z-index:4; margin-top:-30px;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  background:var(--white); border-radius:var(--r-lg);
+  box-shadow:var(--sh-md); border:1px solid var(--line);
+  padding:24px 10px;
+}
+.usp-bar li{
+  display:flex; align-items:center; gap:14px;
+  padding:4px 24px; border-left:1px solid var(--line);
+}
+.usp-bar li:first-child{ border-left:0; }
+.usp-bar strong{ display:block; font-size:.98rem; color:var(--forest); }
+.usp-bar span{ display:block; font-size:.84rem; color:var(--ink-soft); margin-top:3px; }
+.usp-icon{
+  width:46px; height:46px; flex-shrink:0; display:grid; place-items:center;
+  border-radius:50%; background:var(--leaf-soft); color:var(--leaf);
+}
+.usp-icon svg{ width:22px; height:22px; }
+
+/* =================== SECTION CHUNG =================== */
+.section{ padding:84px 0; }
+.section-head{
+  display:flex; justify-content:space-between; align-items:flex-end;
+  gap:24px; margin-bottom:38px;
+}
+.section-head h2{
+  font-family:var(--font-title); font-size:clamp(1.8rem,3vw,2.6rem);
+  color:var(--forest); margin:0 0 8px; letter-spacing:-.015em;
+}
+.section-head p{ margin:0; color:var(--ink-soft); }
+.link-more{
+  color:var(--leaf); font-weight:600; white-space:nowrap;
+  border-bottom:2px solid transparent; padding-bottom:2px; transition:border-color .2s;
+}
+.link-more:hover{ border-color:var(--leaf); }
+
+/* =================== SẢN PHẨM =================== */
+.product-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+
+.product-card{
+  position:relative; background:var(--white);
+  border:1px solid var(--line); border-radius:var(--r-lg);
+  padding:18px 18px 22px; box-shadow:var(--sh-sm);
+  transition:transform .22s, box-shadow .22s;
+}
+.product-card:hover{ transform:translateY(-6px); box-shadow:var(--sh-lg); }
+.pc-media{
+  border-radius:var(--r-md); background:var(--leaf-soft);
+  padding:12px; margin-bottom:16px;
+}
+.pc-media img{ width:100%; height:auto; }
+.pc-tag{
+  position:absolute; top:26px; left:26px; z-index:2;
+  padding:5px 12px; border-radius:var(--r-pill);
+  font-size:.74rem; font-weight:600; color:#fff; background:var(--leaf);
+}
+.pc-tag.is-sale{ background:var(--sun); color:var(--sun-deep); }
+.pc-name{ font-size:1.04rem; font-weight:600; color:var(--forest); margin:0 0 4px; }
+.pc-meta{ font-size:.84rem; color:var(--ink-soft); margin:0 0 14px; }
+.pc-foot{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.pc-price{ font-size:1.14rem; font-weight:700; color:var(--forest); }
+.pc-price small{ display:block; font-size:.78rem; font-weight:400; color:#A2A99C; text-decoration:line-through; }
+.pc-add{
+  width:44px; height:44px; flex-shrink:0; border:0; border-radius:50%;
+  background:var(--sun); color:var(--sun-deep); display:grid; place-items:center;
+  box-shadow:0 8px 16px rgba(245,185,33,.34); transition:transform .18s, background .18s;
+}
+.pc-add:hover{ background:var(--forest); color:#fff; transform:scale(1.07); }
+.pc-add svg{ width:20px; height:20px; }
+
+/* =================== BANNER NÔNG TRẠI =================== */
+.farm-banner{
+  display:grid; grid-template-columns:1.15fr .85fr; gap:44px; align-items:center;
+  padding:56px; border-radius:var(--r-xl);
+  background:
+    radial-gradient(600px 300px at 90% 10%, rgba(63,163,77,.45), transparent 70%),
+    linear-gradient(135deg,#1B6236,#0E3F22);
+  color:#fff;
+}
+.fb-copy h2{
+  font-family:var(--font-title); font-size:clamp(1.7rem,2.6vw,2.4rem);
+  margin:0 0 14px; letter-spacing:-.015em;
+}
+.fb-copy p{ margin:0 0 26px; line-height:1.8; color:rgba(255,255,255,.82); max-width:52ch; }
+.fb-stats{ display:grid; gap:14px; }
+.fb-stats li{
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--r-md); padding:18px 24px;
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+}
+.fb-stats strong{ font-family:var(--font-title); font-size:2rem; display:block; }
+.fb-stats span{ font-size:.9rem; color:rgba(255,255,255,.78); }
+
+/* =================== FOOTER =================== */
+.site-footer{ background:#0E3F22; color:rgba(255,255,255,.75); padding:64px 0 28px; }
+.footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; }
+.brand-light .brand-name{ color:#fff; }
+.brand-light .brand-name em{ color:#8FD46A; }
+.footer-about{ margin:16px 0 0; line-height:1.75; font-size:.93rem; max-width:34ch; }
+.site-footer h3{ color:#fff; font-size:1rem; margin:0 0 16px; }
+.site-footer li{ margin-bottom:10px; font-size:.93rem; }
+.site-footer a:hover{ color:#8FD46A; }
+.footer-bottom{
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  margin-top:48px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14);
+  font-size:.86rem;
+}
+.footer-bottom p{ margin:0; }
+
+/* =================== TOAST =================== */
+.toast{
+  position:fixed; left:50%; bottom:calc(28px + env(safe-area-inset-bottom,0px));
+  transform:translate(-50%,24px); z-index:90;
+  background:var(--forest); color:#fff; padding:14px 26px;
+  border-radius:var(--r-pill); box-shadow:var(--sh-lg);
+  font-size:.92rem; opacity:0; pointer-events:none; transition:.28s;
+}
+.toast.show{ opacity:1; transform:translate(-50%,0); }
+
+/* =================== RESPONSIVE =================== */
+@media (max-width:1180px){
+  .search input{ width:150px; }
+  .search input:focus{ width:190px; }
+  .main-nav a,.nav-toggle{ padding:10px 10px; font-size:.92rem; }
+  .card-natural{ left:0; }
+  .card-delivery{ left:-2%; }
+  .card-rating{ right:0; }
+}
+
+@media (max-width:1000px){
+  .shell{ margin:10px; border-radius:26px; }
+  .wrap{ width:min(100% - 32px, var(--wrap)); }
+  .burger{ display:block; }
+  .search{ display:none; }
+  .main-nav{
+    position:absolute; top:100%; left:16px; right:16px;
+    background:var(--white); border-radius:var(--r-lg); box-shadow:var(--sh-lg);
+    padding:14px; display:none;
+  }
+  .main-nav.is-open{ display:block; }
+  .main-nav > ul{ flex-direction:column; align-items:stretch; gap:2px; }
+  .main-nav a,.nav-toggle{ width:100%; justify-content:space-between; padding:13px 16px; }
+  .dropdown{ position:static; opacity:1; visibility:visible; transform:none;
+    box-shadow:none; border:0; background:var(--leaf-soft); display:none; margin:4px 0 8px; }
+  .has-menu.is-open .dropdown{ display:block; }
+
+  .hero-grid{ grid-template-columns:1fr; gap:10px; text-align:left; }
+  .hero-visual{ order:-1; display:flex; flex-direction:column; gap:12px; }
+  .hero-img{ max-width:520px; margin-inline:auto; }
+  .float-card{ position:static; background:var(--white); }
+  .card-rating .avatars{ margin-top:6px; }
+
+  .usp-bar{ grid-template-columns:repeat(2,1fr); gap:18px 0; margin-top:14px; }
+  .usp-bar li:nth-child(odd){ border-left:0; }
+  .product-grid{ grid-template-columns:repeat(2,1fr); }
+  .farm-banner{ grid-template-columns:1fr; padding:38px 28px; }
+  .footer-grid{ grid-template-columns:1fr 1fr; gap:30px; }
+}
+
+@media (max-width:600px){
+  .section{ padding:56px 0; }
+  .header-inner{ gap:12px; }
+  .brand-name{ font-size:1.35rem; }
+  .cart-btn{ padding:11px 16px; font-size:0; gap:0; }
+  .cart-btn svg{ width:20px; height:20px; }
+  .hero-actions .btn{ flex:1 1 100%; justify-content:center; }
+  .usp-bar{ grid-template-columns:1fr; padding:18px; }
+  .usp-bar li{ border-left:0; padding:10px 6px; }
+  .product-grid{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; }
+  .section-head{ flex-direction:column; align-items:flex-start; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
+
+/* =========================================================
+   DALAT FRESH - TINH CHỈNH GIAO DIỆN
+   ========================================================= */
+
+/* ---------- HEADER ---------- */
+
+.site-header {
+  background: rgba(250, 248, 239, 0.96);
+  backdrop-filter: blur(10px);
+}
+
+.header-inner {
+  min-height: 88px;
+}
+
+.brand-name {
+  font-size: 27px;
+  letter-spacing: -0.5px;
+}
+
+.main-nav ul {
+  gap: 34px;
+}
+
+.main-nav a,
+.nav-toggle {
+  font-size: 16px;
+}
+
+/* Search */
+.search {
+  width: 220px;
+}
+
+.search input {
+  font-size: 14px;
+}
+
+/* Cart */
+.cart-btn {
+  min-width: 188px;
+  height: 46px;
+  border-radius: 24px;
+  font-weight: 700;
+}
+
+
+/* ---------- HERO ---------- */
+
+.hero {
+  padding-top: 42px;
+  padding-bottom: 34px;
+}
+
+.hero-grid {
+  align-items: center;
+  min-height: 520px;
+}
+
+.hero-copy {
+  padding-top: 0;
+}
+
+.hero-title {
+  font-size: clamp(52px, 5vw, 70px);
+  line-height: 1.02;
+  letter-spacing: -2.5px;
+  max-width: 620px;
+  margin-top: 22px;
+  margin-bottom: 24px;
+}
+
+.hero-sub {
+  max-width: 590px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  margin-top: 30px;
+}
+
+
+/* ---------- HERO IMAGE ---------- */
+
+.hero-visual {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img {
+  width: min(100%, 700px);
+  height: auto;
+  object-fit: contain;
+  transform: translateX(10px);
+}
+
+
+/* ---------- FLOATING CARDS ---------- */
+
+.float-card {
+  box-shadow:
+    0 18px 45px rgba(28, 73, 43, 0.12),
+    0 3px 12px rgba(28, 73, 43, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.card-natural {
+  top: 32px;
+  left: -10px;
+}
+
+.card-delivery {
+  left: -35px;
+  bottom: 72px;
+}
+
+.card-rating {
+  right: -10px;
+  bottom: 42px;
+}
+
+
+/* ---------- USP BAR ---------- */
+
+.usp-bar {
+  margin-top: -5px;
+  padding: 18px 26px;
+  border-radius: 26px;
+  box-shadow:
+    0 15px 40px rgba(32, 75, 43, 0.08);
+}
+
+.usp-bar li {
+  min-height: 58px;
+}
+
+.usp-bar strong {
+  font-size: 15px;
+}
+
+.usp-bar span {
+  font-size: 13px;
+}
+
+
+/* ---------- PRODUCT SECTION ---------- */
+
+.products {
+  padding-top: 75px;
+}
+
+.section-head {
+  margin-bottom: 30px;
+}
+
+.section-head h2 {
+  font-size: clamp(34px, 4vw, 48px);
+  letter-spacing: -1.5px;
+}
+
+.section-head p {
+  font-size: 15px;
+}
+
+
+/* ---------- PRODUCT CARD ---------- */
+
+.product-card {
+  overflow: hidden;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid rgba(35, 80, 47, 0.08);
+  box-shadow: 0 12px 30px rgba(25, 70, 40, 0.07);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(25, 70, 40, 0.12);
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 0.85;
+  object-fit: cover;
+  display: block;
+}
+
+.product-info {
+  padding: 18px 18px 20px;
+}
+
+.product-info h3 {
+  margin: 6px 0;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1100px) {
+
+  .main-nav ul {
+    gap: 20px;
+  }
+
+  .header-tools {
+    gap: 8px;
+  }
+
+  .search {
+    width: 180px;
+  }
+
+  .hero-title {
+    font-size: 54px;
+  }
+
+  .hero-img {
+    width: 620px;
+  }
+
+  .card-delivery {
+    left: -10px;
+  }
+}
+
+
+@media (max-width: 900px) {
+
+  .main-nav {
+    display: none;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-title,
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    min-height: 450px;
+    margin-top: 20px;
+  }
+
+  .hero-img {
+    width: min(90%, 650px);
+    transform: none;
+  }
+
+  .card-natural {
+    left: 2%;
+  }
+
+  .card-delivery {
+    left: 2%;
+  }
+
+  .card-rating {
+    right: 2%;
+  }
+
+  .usp-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .header-inner {
+    min-height: 72px;
+  }
+
+  .brand-name {
+    font-size: 22px;
+  }
+
+  .search,
+  .icon-btn {
+    display: none;
+  }
+
+  .cart-btn {
+    min-width: auto;
+    padding: 0 15px;
+  }
+
+  .hero {
+    padding-top: 28px;
+  }
+
+  .hero-title {
+    font-size: 43px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+  }
+
+  .hero-visual {
+    min-height: 390px;
+  }
+
+  .hero-img {
+    width: 100%;
+  }
+
+  .float-card {
+    transform: scale(0.82);
+  }
+
+  .card-natural {
+    top: 5px;
+    left: -18px;
+  }
+
+  .card-delivery {
+    bottom: 20px;
+    left: -20px;
+  }
+
+  .card-rating {
+    right: -18px;
+    bottom: 0;
+  }
+
+  .usp-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .products {
+    padding-top: 55px;
+  }
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  margin-left: -7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 2px solid #fff;
+
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.avatar-1 {
+  background: #4d8061;
+}
+
+.avatar-2 {
+  background: #c68c52;
+}
+
+.avatar-3 {
+  background: #78966a;
+}
+
+.avatar-4 {
+  background: #92725a;
+}
+
+.avatar-more {
+  width: 32px;
+  height: 32px;
+  margin-left: -7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 2px solid #fff;
+
+  background: #2f8b4c;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+/* =========================================================
+   DALAT FRESH - HERO FINAL
+   Ảnh rau thật + card trong suốt
+   ========================================================= */
+
+/* ---------- HERO ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      rgba(232, 243, 224, 0.65),
+      transparent 38%
+    );
+}
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 44% 56%;
+
+  align-items: center;
+
+  min-height: 560px;
+  gap: 20px;
+}
+
+
+/* ---------- HERO IMAGE ---------- */
+
+.hero-visual {
+  position: relative;
+
+  width: 100%;
+  height: 540px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+}
+
+
+/*
+   Ảnh PNG nền trong suốt.
+   KHÔNG dùng mix-blend-mode nữa.
+*/
+
+.hero-img {
+  display: block;
+
+  width: min(100%, 740px);
+  height: 520px;
+
+  object-fit: contain;
+  object-position: center;
+
+  transform: translateX(10px);
+
+  /*
+    Làm rau rõ hơn một chút
+  */
+  filter:
+    saturate(1.08)
+    contrast(1.04)
+    brightness(1.01)
+    drop-shadow(0 24px 35px rgba(20, 83, 45, 0.14));
+
+  /*
+    Ảnh rõ hoàn toàn
+  */
+  opacity: 1;
+
+  /*
+    Quan trọng:
+    bỏ mix-blend-mode: multiply
+  */
+  mix-blend-mode: normal;
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+
+/* Hover nhẹ */
+
+.hero-visual:hover .hero-img {
+  transform: translateX(10px) scale(1.015);
+
+  filter:
+    saturate(1.1)
+    contrast(1.05)
+    brightness(1.02)
+    drop-shadow(0 28px 42px rgba(20, 83, 45, 0.17));
+}
+
+
+/* =========================================================
+   FLOATING CARDS
+   ========================================================= */
+
+.float-card {
+  position: absolute;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 14px 20px 14px 14px;
+
+  /*
+    Trong suốt hơn một chút
+  */
+  background: rgba(255, 255, 255, 0.72);
+
+  /*
+    Cho phép nhìn xuyên qua card
+  */
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+
+  /*
+    Viền rất nhẹ
+  */
+  border: 1px solid rgba(255, 255, 255, 0.65);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 45px rgba(20, 83, 45, 0.10),
+    0 5px 15px rgba(20, 83, 45, 0.05);
+
+  /*
+    Card trong suốt nhưng chữ vẫn rõ
+  */
+  opacity: 0.96;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/*
+   Hover card
+*/
+
+.float-card:hover {
+  background: rgba(255, 255, 255, 0.84);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 24px 50px rgba(20, 83, 45, 0.14),
+    0 7px 18px rgba(20, 83, 45, 0.07);
+}
+
+
+/* ---------- CARD 1 ---------- */
+
+.card-natural {
+  top: 38px;
+  left: -12px;
+}
+
+
+/* ---------- CARD 2 ---------- */
+
+.card-delivery {
+  left: -30px;
+  bottom: 68px;
+}
+
+
+/* ---------- CARD 3 ---------- */
+
+.card-rating {
+  right: -10px;
+  bottom: 42px;
+
+  width: 205px;
+  min-height: 150px;
+
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.68);
+
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+}
+
+
+/* =========================================================
+   ICON TRONG CARD
+   ========================================================= */
+
+.fc-icon {
+  background: rgba(232, 243, 224, 0.82);
+}
+
+.fc-green {
+  background: rgba(232, 243, 224, 0.86);
+}
+
+.fc-amber {
+  background: rgba(253, 240, 210, 0.82);
+}
+
+.fc-star {
+  background: rgba(253, 240, 210, 0.82);
+}
+
+
+/* =========================================================
+   RATING
+   ========================================================= */
+
+.rating-body strong {
+  color: var(--forest);
+  font-size: 23px;
+  line-height: 1.1;
+}
+
+.rating-body > span {
+  color: var(--ink-soft);
+}
+
+
+/* =========================================================
+   USP BAR
+   ========================================================= */
+
+.usp-bar {
+  position: relative;
+  z-index: 20;
+
+  margin-top: -8px;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 18px 40px rgba(20, 83, 45, 0.08);
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  .hero-grid {
+    grid-template-columns: 43% 57%;
+  }
+
+  .hero-img {
+    width: min(100%, 750px);
+    height: 530px;
+  }
+
+  .card-natural {
+    left: -15px;
+  }
+
+  .card-delivery {
+    left: -35px;
+  }
+
+  .card-rating {
+    right: -15px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    height: 500px;
+    margin-top: 20px;
+  }
+
+  .hero-img {
+    width: 90%;
+    height: 480px;
+    transform: none;
+  }
+
+  .card-natural {
+    left: 2%;
+  }
+
+  .card-delivery {
+    left: 2%;
+  }
+
+  .card-rating {
+    right: 2%;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .hero-grid {
+    min-height: auto;
+  }
+
+  .hero-visual {
+    height: 390px;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 380px;
+  }
+
+  .float-card {
+    transform: scale(.8);
+    background: rgba(255, 255, 255, 0.76);
+  }
+
+  .card-natural {
+    top: 5px;
+    left: -18px;
+  }
+
+  .card-delivery {
+    left: -20px;
+    bottom: 20px;
+  }
+
+  .card-rating {
+    right: -18px;
+    bottom: 0;
+  }
+}
+/* =========================================================
+   FIX HERO + USP BAR
+   ========================================================= */
+
+/* Hero có thêm khoảng thở phía dưới */
+.hero {
+  padding-bottom: 45px;
+}
+
+/* Không để USP đè lên nội dung hero */
+.usp-bar {
+  margin-top: 25px;
+
+  position: relative;
+  z-index: 20;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid rgba(20, 83, 45, 0.08);
+
+  box-shadow:
+    0 18px 40px rgba(20, 83, 45, 0.08);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* Hero visual không bị ép chiều cao quá thấp */
+.hero-visual {
+  min-height: 540px;
+  height: 540px;
+}
+
+
+/* Ảnh rau */
+.hero-img {
+  width: min(100%, 740px);
+  height: 520px;
+
+  object-fit: contain;
+  object-position: center;
+
+  display: block;
+
+  /*
+   * Không hòa ảnh vào background.
+   * Ảnh phải rõ và nổi.
+   */
+  opacity: 1;
+  mix-blend-mode: normal;
+
+  filter:
+    saturate(1.06)
+    contrast(1.03)
+    brightness(1.01)
+    drop-shadow(
+      0 24px 35px rgba(20, 83, 45, 0.13)
+    );
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.hero-actions {
+  position: relative;
+  z-index: 5;
+
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   FLOATING CARD
+   ========================================================= */
+
+.float-card {
+  z-index: 15;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 18px 42px rgba(20, 83, 45, 0.11),
+    0 4px 14px rgba(20, 83, 45, 0.05);
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1001px) {
+
+  .hero-grid {
+    min-height: 570px;
+  }
+
+  .hero-visual {
+    min-height: 540px;
+  }
+
+  .usp-bar {
+    margin-top: 20px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero {
+    padding-bottom: 30px;
+  }
+
+  .hero-visual {
+    height: 500px;
+    min-height: 500px;
+  }
+
+  .usp-bar {
+    margin-top: 25px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding-bottom: 25px;
+  }
+
+  .hero-visual {
+    height: 390px;
+    min-height: 390px;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: 380px;
+  }
+
+  .usp-bar {
+    margin-top: 20px;
+  }
+}
+/* ===== HERO IMAGE: JPG nền trắng ===== */
+.hero-img,
+.hero-visual:hover .hero-img {
+  mix-blend-mode: multiply;                 /* nền trắng tan vào nền kem */
+  filter: brightness(1.06) contrast(1.04) saturate(1.08); /* không drop-shadow */
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 72%, transparent 100%);
+          mask-image: radial-gradient(ellipse at center, #000 72%, transparent 100%);
+}
+
+/* =========================================================
+   DALAT FRESH - TRANG CHỦ NHẤN MẠNH ĐỘ TƯƠI & NGUỒN GỐC ĐÀ LẠT
+   ========================================================= */
+
+/* HERO */
+.fresh-hero{
+  background:
+    radial-gradient(circle at 78% 32%, rgba(214,239,198,.72), transparent 32%),
+    radial-gradient(circle at 15% 85%, rgba(245,185,33,.10), transparent 25%),
+    linear-gradient(180deg, #fbf9f0 0%, #f5f3e7 100%);
+}
+
+.fresh-eyebrow{
+  color:var(--forest);
+  letter-spacing:.04em;
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.fresh-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#54a84d;
+  box-shadow:0 0 0 5px rgba(84,168,77,.12);
+}
+
+.fresh-hero .hero-title span{
+  color:var(--leaf);
+  position:relative;
+}
+
+.fresh-hero .hero-title span::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:12%;
+  bottom:-7px;
+  height:7px;
+  background:rgba(245,185,33,.30);
+  border-radius:50%;
+  transform:rotate(-1.5deg);
+  z-index:-1;
+}
+
+.hero-origin{
+  display:inline-flex;
+  align-items:center;
+  gap:11px;
+  margin:0 0 26px;
+  padding:10px 16px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(20,83,45,.10);
+  border-radius:16px;
+}
+
+.origin-pin{
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:var(--leaf-soft);
+  color:var(--forest);
+  font-size:20px;
+}
+
+.hero-origin strong,
+.hero-origin span{
+  display:block;
+}
+
+.hero-origin strong{
+  color:var(--forest);
+  font-size:.92rem;
+}
+
+.hero-origin span{
+  color:var(--ink-soft);
+  font-size:.78rem;
+  margin-top:2px;
+}
+
+.fresh-hero-visual{
+  min-height:560px;
+}
+
+.hero-image-frame{
+  position:relative;
+  width:min(100%,760px);
+  border-radius:38px;
+  overflow:visible;
+}
+
+.hero-image-frame::before{
+  content:"";
+  position:absolute;
+  inset:18px -18px -18px 18px;
+  background:#dcebd3;
+  border-radius:38px;
+  z-index:-1;
+  transform:rotate(2deg);
+}
+
+.fresh-hero .hero-img{
+  width:100%;
+  height:530px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:34px;
+  transform:none;
+  box-shadow:0 28px 60px rgba(20,83,45,.16);
+}
+
+.fresh-hero .hero-visual:hover .hero-img{
+  transform:scale(1.012);
+}
+
+.hero-stamp{
+  position:absolute;
+  right:-20px;
+  top:28px;
+  width:104px;
+  height:104px;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  border-radius:50%;
+  background:#f5b921;
+  color:#624506;
+  text-align:center;
+  box-shadow:0 14px 28px rgba(122,83,7,.18);
+  transform:rotate(9deg);
+}
+
+.hero-stamp strong{
+  font-family:var(--font-title);
+  font-size:1.15rem;
+  line-height:1;
+}
+
+.hero-stamp small{
+  margin-top:4px;
+  font-size:.57rem;
+  font-weight:800;
+  letter-spacing:.13em;
+}
+
+.fresh-floating-card{
+  position:absolute;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:12px 18px 12px 12px;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(255,255,255,.95);
+  border-radius:18px;
+  box-shadow:0 18px 42px rgba(20,83,45,.13);
+  backdrop-filter:blur(14px);
+}
+
+.fresh-floating-card strong,
+.fresh-floating-card span{
+  display:block;
+}
+
+.fresh-floating-card strong{
+  color:var(--forest);
+  font-size:.9rem;
+}
+
+.fresh-floating-card span{
+  color:var(--ink-soft);
+  font-size:.73rem;
+  margin-top:3px;
+}
+
+.fresh-card-icon{
+  width:40px;
+  height:40px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:var(--leaf-soft);
+  font-size:20px;
+}
+
+.fresh-card-top{
+  left:-34px;
+  top:86px;
+}
+
+.fresh-card-bottom{
+  left:-20px;
+  bottom:56px;
+}
+
+.fresh-card-bottom .fresh-card-icon{
+  background:#fff3d4;
+}
+
+/* THANH ĐỘ TƯƠI */
+.freshness-strip{
+  position:relative;
+  z-index:10;
+  margin-top:-12px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(20,83,45,.08);
+  border-radius:24px;
+  box-shadow:0 18px 45px rgba(20,83,45,.10);
+  overflow:hidden;
+}
+
+.freshness-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:82px;
+  padding:16px 22px;
+  border-left:1px solid var(--line);
+}
+
+.freshness-item:first-child{
+  border-left:0;
+}
+
+.freshness-number{
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:var(--leaf-soft);
+  color:var(--forest);
+  font-size:.72rem;
+  font-weight:800;
+}
+
+.freshness-item strong,
+.freshness-item span{
+  display:block;
+}
+
+.freshness-item strong{
+  color:var(--forest);
+  font-size:.86rem;
+}
+
+.freshness-item span{
+  margin-top:3px;
+  color:var(--ink-soft);
+  font-size:.72rem;
+}
+
+/* PRODUCT SECTION */
+.fresh-products{
+  padding-top:88px;
+}
+
+.section-kicker{
+  margin:0 0 9px;
+  color:var(--leaf);
+  font-size:.73rem;
+  font-weight:800;
+  letter-spacing:.13em;
+}
+
+.fresh-section-head h2{
+  margin-bottom:12px;
+}
+
+.fresh-section-head p{
+  max-width:720px;
+  line-height:1.7;
+}
+
+.fresh-harvest-ticket{
+  margin-bottom:30px;
+  border:1px solid rgba(63,163,77,.14);
+  background:linear-gradient(90deg,#f4faef,#fffdf7);
+}
+
+.fresh-harvest-ticket .ht-icon{
+  background:#e7f4df;
+  color:var(--forest);
+}
+
+/* ORIGIN */
+.origin-section{
+  background:#f2f5e9;
+}
+
+.origin-intro{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:end;
+  margin-bottom:42px;
+}
+
+.origin-intro h2{
+  margin:0;
+  font-family:var(--font-title);
+  color:var(--forest);
+  font-size:clamp(2rem,3.7vw,3.2rem);
+  line-height:1.08;
+  letter-spacing:-.02em;
+}
+
+.origin-intro > p{
+  margin:0;
+  color:var(--ink-soft);
+  line-height:1.8;
+  max-width:54ch;
+}
+
+.origin-steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.origin-step{
+  position:relative;
+  padding:24px;
+  min-height:285px;
+  background:#fff;
+  border:1px solid rgba(20,83,45,.08);
+  border-radius:24px;
+  box-shadow:0 10px 28px rgba(20,83,45,.05);
+  overflow:hidden;
+}
+
+.origin-step-no{
+  position:absolute;
+  top:18px;
+  right:20px;
+  color:#b5c4ad;
+  font-size:.72rem;
+  font-weight:800;
+}
+
+.origin-visual{
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  margin-bottom:24px;
+  border-radius:20px;
+  background:var(--leaf-soft);
+  font-size:30px;
+}
+
+.origin-step:nth-child(2) .origin-visual{background:#edf7df}
+.origin-step:nth-child(3) .origin-visual{background:#fff4d7}
+.origin-step:nth-child(4) .origin-visual{background:#eaf2e7}
+
+.origin-step h3{
+  margin:0 0 8px;
+  color:var(--forest);
+  font-size:1.05rem;
+}
+
+.origin-step p{
+  margin:0;
+  color:var(--ink-soft);
+  font-size:.86rem;
+  line-height:1.7;
+}
+
+/* SEASONAL */
+.seasonal-section{
+  background:var(--cream);
+}
+
+.seasonal-card{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:55px;
+  align-items:center;
+  padding:58px;
+  border-radius:36px;
+  background:
+    radial-gradient(circle at 90% 20%,rgba(91,160,70,.36),transparent 34%),
+    linear-gradient(135deg,#1c6035,#0d3e21);
+  color:#fff;
+  overflow:hidden;
+  position:relative;
+}
+
+.seasonal-card::after{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  right:-90px;
+  bottom:-110px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  box-shadow:0 0 0 35px rgba(255,255,255,.035),0 0 0 70px rgba(255,255,255,.025);
+}
+
+.section-kicker.light{
+  color:#b8e39b;
+}
+
+.seasonal-copy h2{
+  margin:0 0 16px;
+  font-family:var(--font-title);
+  font-size:clamp(2rem,3.5vw,3.15rem);
+  line-height:1.08;
+}
+
+.seasonal-copy > p:not(.section-kicker){
+  max-width:52ch;
+  margin:0 0 28px;
+  color:rgba(255,255,255,.78);
+  line-height:1.8;
+}
+
+.seasonal-badges{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  position:relative;
+  z-index:2;
+}
+
+.season-badge{
+  min-height:140px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:18px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:22px;
+  backdrop-filter:blur(8px);
+}
+
+.season-badge span{
+  font-size:34px;
+  margin-bottom:7px;
+}
+
+.season-badge strong{
+  font-size:.96rem;
+}
+
+.season-badge small{
+  margin-top:4px;
+  color:rgba(255,255,255,.68);
+}
+
+/* FARM */
+.farm-story-home{
+  padding-top:0;
+}
+
+.fresh-farm-banner{
+  background:
+    radial-gradient(circle at 85% 15%,rgba(98,181,78,.42),transparent 32%),
+    linear-gradient(135deg,#245f39,#0d3e21);
+}
+
+.fresh-farm-banner .section-kicker{
+  margin-bottom:10px;
+}
+
+.fresh-stats li{
+  border-color:rgba(255,255,255,.15);
+}
+
+.fresh-stats strong{
+  font-family:var(--font-title);
+  font-size:1.7rem;
+  letter-spacing:.02em;
+}
+
+/* RESPONSIVE */
+@media (max-width:1000px){
+  .freshness-strip{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .freshness-item:nth-child(3){
+    border-left:0;
+  }
+
+  .origin-intro{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .origin-steps{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .seasonal-card{
+    grid-template-columns:1fr;
+    padding:42px 30px;
+  }
+
+  .fresh-card-top{
+    left:2%;
+  }
+
+  .fresh-card-bottom{
+    left:2%;
+  }
+
+  .hero-stamp{
+    right:2%;
+  }
+}
+
+@media (max-width:600px){
+  .fresh-hero{
+    padding-top:25px;
+  }
+
+  .fresh-hero .hero-title{
+    font-size:42px;
+  }
+
+  .hero-origin{
+    width:100%;
+  }
+
+  .fresh-hero-visual{
+    min-height:430px;
+  }
+
+  .hero-image-frame{
+    width:100%;
+  }
+
+  .fresh-hero .hero-img{
+    height:380px;
+    border-radius:26px;
+  }
+
+  .hero-image-frame::before{
+    inset:10px -8px -10px 8px;
+    border-radius:26px;
+  }
+
+  .hero-stamp{
+    width:82px;
+    height:82px;
+    top:12px;
+    right:-4px;
+  }
+
+  .hero-stamp strong{
+    font-size:.95rem;
+  }
+
+  .fresh-floating-card{
+    max-width:230px;
+    padding:10px 12px 10px 9px;
+  }
+
+  .fresh-floating-card strong{
+    font-size:.78rem;
+  }
+
+  .fresh-floating-card span{
+    font-size:.65rem;
+  }
+
+  .fresh-card-top{
+    left:-8px;
+    top:35px;
+  }
+
+  .fresh-card-bottom{
+    left:-5px;
+    bottom:35px;
+  }
+
+  .freshness-strip{
+    grid-template-columns:1fr;
+    margin-top:5px;
+  }
+
+  .freshness-item{
+    border-left:0;
+    border-top:1px solid var(--line);
+  }
+
+  .freshness-item:first-child{
+    border-top:0;
+  }
+
+  .origin-steps{
+    grid-template-columns:1fr;
+  }
+
+  .origin-step{
+    min-height:auto;
+  }
+
+  .seasonal-card{
+    padding:34px 22px;
+    border-radius:26px;
+  }
+
+  .seasonal-badges{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .season-badge{
+    min-height:120px;
+  }
+}
+.fresh-strip {
+    margin-top: 55px;
+    position: relative;
+    z-index: 2;
+}
+/* =====================================================
+   KHỐI THÔNG TIN RAU TƯƠI HÔM NAY
+   ===================================================== */
+
+.fresh-harvest-ticket {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    width: 100%;
+    margin-top: 28px;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid #e3eadf;
+    border-radius: 22px;
+
+    box-shadow: 0 12px 30px rgba(31, 76, 43, 0.07);
+}
+
+/* Mỗi ô thông tin */
+.fresh-ticket-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    min-width: 0;
+    min-height: 125px;
+    padding: 24px 22px;
+
+    background: #ffffff;
+}
+
+/* Đường phân cách giữa các ô */
+.fresh-ticket-item + .fresh-ticket-item {
+    border-left: 1px solid #e8eee4;
+}
+
+/* Khung icon */
+.fresh-ticket-item .ticket-icon {
+    width: 48px !important;
+    height: 48px !important;
+
+    min-width: 48px;
+    min-height: 48px;
+
+    flex: 0 0 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    font-size: 21px;
+    line-height: 1;
+}
+
+/* Ép SVG không được phóng to */
+.fresh-ticket-item .ticket-icon svg {
+    display: block;
+
+    width: 23px !important;
+    height: 23px !important;
+
+    max-width: 23px !important;
+    max-height: 23px !important;
+
+    min-width: 23px !important;
+    min-height: 23px !important;
+}
+
+/* Màu nền từng icon */
+.fresh-ticket-item .ticket-sun {
+    background: #fff3d5;
+    color: #b98516;
+}
+
+.fresh-ticket-item .ticket-clock {
+    background: #e8f3e4;
+    color: #347c49;
+}
+
+.fresh-ticket-item .ticket-location {
+    background: #edf3e8;
+    color: #39794c;
+}
+
+.fresh-ticket-item .ticket-leaf {
+    background: #e4f1df;
+    color: #347b48;
+}
+
+/* Nội dung trong từng ô */
+.fresh-ticket-item .ticket-content {
+    min-width: 0;
+}
+
+.fresh-ticket-item .ticket-content > span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #8a9388;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.fresh-ticket-item .ticket-content strong {
+    display: block;
+
+    color: #205b36;
+
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.35;
+}
+
+.fresh-ticket-item .ticket-content small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #7b857a;
+
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+/* Hiệu ứng khi rê chuột */
+.fresh-ticket-item {
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.fresh-ticket-item:hover {
+    background: #f8fbf5;
+}
+
+.fresh-ticket-item:hover .ticket-icon {
+    transform: translateY(-2px);
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 1100px) {
+    .fresh-harvest-ticket {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fresh-ticket-item:nth-child(3) {
+        border-left: none;
+        border-top: 1px solid #e8eee4;
+    }
+
+    .fresh-ticket-item:nth-child(4) {
+        border-top: 1px solid #e8eee4;
+    }
+}
+
+@media (max-width: 600px) {
+    .fresh-harvest-ticket {
+        grid-template-columns: 1fr;
+        border-radius: 18px;
+    }
+
+    .fresh-ticket-item,
+    .fresh-ticket-item:nth-child(3),
+    .fresh-ticket-item:nth-child(4) {
+        min-height: 100px;
+        border-left: none;
+        border-top: 1px solid #e8eee4;
+    }
+
+    .fresh-ticket-item:first-child {
+        border-top: none;
+    }
+}
